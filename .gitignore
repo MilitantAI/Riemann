@@ -1,6 +1,7 @@
 tmp/
 work/
 reference/
+.cursor/plans/
 __pycache__/
 *.pyc
 *.aux
@@ -20,3 +21,8 @@ __pycache__/
 *.vrb
 *-SAVE-ERROR
 _minted-*/
+
+AGENTS.md
+CHANGE_MANIFEST.md
+riemann_cogenetic_proof_v1.0_supporting_material.zip
+riemann_cogenetic_proof_v1.0_supporting_material.zip.sha256

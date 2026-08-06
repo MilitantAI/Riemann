@@ -1,0 +1,22 @@
+{
+  "title": "A Cogenetic Proof of the Riemann Hypothesis",
+  "description": "Version 1.0 manuscript and executable supporting material deriving critical-line closure from finite arithmetic ancestry, exact residual transport, self-dual resolution, and cogenetic persistence selection.",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "creators": [
+    {
+      "name": "Petrik, Morgan",
+      "affiliation": "Militant.AI"
+    }
+  ],
+  "version": "1.0",
+  "publication_date": "2026-08-06",
+  "doi": "10.5281/zenodo.21817670",
+  "keywords": [
+    "Riemann hypothesis",
+    "zeta function",
+    "cogenesis",
+    "relational invariance",
+    "critical line"
+  ]
+}

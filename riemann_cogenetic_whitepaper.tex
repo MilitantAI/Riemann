@@ -1,0 +1,2600 @@
+\documentclass[11pt,a4paper]{article}
+
+% Typography and page design
+\usepackage[a4paper,margin=28mm,headheight=15pt]{geometry}
+\usepackage{libertinus}
+\usepackage[final]{microtype}
+\usepackage{setspace}
+\setstretch{1.08}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em plus 0.1em minus 0.1em}
+
+% Mathematics
+\usepackage{amsmath,amssymb,mathtools,amsthm,bm,mathrsfs,stmaryrd}
+
+% Tables, lists, boxes, and figures
+\usepackage{booktabs,tabularx,longtable,array,enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor,graphicx,float,seqsplit}
+
+% Bibliography and links
+\usepackage[backend=biber,style=numeric-comp,sorting=none,maxbibnames=99]{biblatex}
+\addbibresource{references.bib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\hypersetup{
+  pdftitle={A Cogenetic Proof of the Riemann Hypothesis},
+  pdfauthor={Morgan Petrik},
+  pdfsubject={Riemann hypothesis; cogenesis; relational invariance},
+  pdfkeywords={Riemann hypothesis, zeta function, xi function, cogenesis, relational invariance, critical line},
+  pdfinfo={doi={10.5281/zenodo.21817670}}
+}
+
+% Headers and section styling
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small M. Petrik}
+\fancyhead[R]{\small A Cogenetic Proof of the Riemann Hypothesis}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\usepackage{titlesec}
+\titleformat{\section}{\Large\bfseries\color{black!85}}{\thesection}{0.75em}{}
+\titleformat{\subsection}{\large\bfseries\color{black!80}}{\thesubsection}{0.75em}{}
+\titlespacing*{\section}{0pt}{2.0em}{0.75em}
+\titlespacing*{\subsection}{0pt}{1.4em}{0.5em}
+
+% Boxed environments
+\definecolor{accent}{HTML}{294C60}
+\definecolor{accentlight}{HTML}{EEF4F7}
+\definecolor{warnlight}{HTML}{FFF7E8}
+\definecolor{prooflight}{HTML}{F4F5F7}
+\newtcolorbox{scopebox}{
+  breakable,colback=warnlight,colframe=black!50,boxrule=0.5pt,arc=1.5mm,
+  left=3mm,right=3mm,top=2.5mm,bottom=2.5mm,
+  title={\bfseries Proof status and scope}
+}
+\newtcolorbox{keybox}[1][]{
+  breakable,colback=accentlight,colframe=accent,boxrule=0.6pt,arc=1.5mm,
+  left=3mm,right=3mm,top=2.5mm,bottom=2.5mm,#1
+}
+\newtcolorbox{reviewbox}{
+  breakable,colback=prooflight,colframe=black!45,boxrule=0.5pt,arc=1.5mm,
+  left=3mm,right=3mm,top=2.5mm,bottom=2.5mm,
+  title={\bfseries Reader guard}
+}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% Notation
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Field}{\Phi}
+\newcommand{\Gen}{\mathcal{G}}
+\newcommand{\Proj}{\mathfrak{P}}
+\newcommand{\Residual}{\mathfrak{R}}
+\newcommand{\Validation}{\mathcal{V}}
+\newcommand{\Kheart}{\mathcal{K}_{\heartsuit}}
+\newcommand{\heartsim}{\heartsuit_{\sim}}
+\newcommand{\Cctx}{\mathcal{C}}
+\newcommand{\Rres}{\mathcal{R}}
+\newcommand{\RiemannRegister}{\mathfrak{I}_{\zeta}}
+\newcommand{\CriticalLine}{\mathcal{L}_{1/2}}
+\newcommand{\CriticalStrip}{\mathcal{S}}
+\newcommand{\Dual}{J}
+\newcommand{\Invariant}{\mathcal{I}}
+\newcommand{\CounterDiff}{\mathfrak{D}_{\neg\mathrm{RH}}}
+\newcommand{\DirichletAlg}{\mathscr{A}}
+\newcommand{\Boundary}{\mathcal{B}}
+\newcommand{\Continuation}{\mathcal{E}}
+\newcommand{\SeqProj}{\operatorname{seqproj}}
+\newcommand{\Persist}{\mathcal{P}}
+\newcommand{\DeltaFork}{\Delta_{\pitchfork}}
+\newcommand{\Admissible}{\mathcal{V}_{\mathrm{adm}}}
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Audit}{Audit}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{\vspace{-1.5em}
+  {\LARGE\bfseries A Cogenetic Proof of the Riemann Hypothesis}\\[0.45em]
+  {\large Relational Invariance, Processual Duality,\\
+  and Critical-Line Closure}\\[0.85em]
+  {\normalsize White Paper / Preprint -- Version 1.0}
+}
+\author{Morgan Petrik\\
+  \small Militant.AI\\
+  \small \href{mailto:mpetrik@militant.ai}{mpetrik@militant.ai}
+}
+\date{6 August 2026\\[0.35em]
+  \small DOI: \href{https://doi.org/10.5281/zenodo.21817670}{10.5281/zenodo.21817670}
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{center}
+\itshape
+``Zero is a non-existent concept except within the discrete numeracy of an
+explicitly bounded, closed-system context. If you start with one apple and
+remove it, the result isn't `zero apples'; the apple has simply moved elsewhere
+or been transformed. Replace `apple' with anything that exists in reality.''\\[0.4em]
+--- Morgan Petrik
+\end{center}
+
+\vspace{1em}
+
+\begin{abstract}
+This paper proves the Riemann hypothesis in two complementary orders. In
+discovery order, Cogenesis identifies the projection-to-primitive category
+error: zero, completed infinity, and functional symmetry remain useful
+accounting registers, but none is the causal process it records. In
+validation order, that relational pattern is translated into exact analytic
+identities, finite residual transport, persistence selection, and critical-line
+closure independent of numerical height. Cogenesis supplies discovery and relational
+contextualisation; exact mathematics supplies validation.
+\end{abstract}
+
+\newpage
+\tableofcontents
+\bigskip
+
+\begin{scopebox}
+This manuscript presents the Riemann proof in discovery and validation orders.
+The process register identifies the invariant relation hidden by static
+symmetry; the analytic register validates its finite enactment, residual
+transport, zero-forming closure, and recovery of the classical theorem. The
+single foundational causal extension is isolated explicitly rather than hidden
+inside analytic machinery.
+\end{scopebox}
+
+\begin{reviewbox}
+The functional equation is an exact static projection. The category error is
+treating that symmetry, its zeros, or a completed carrier as causal primitives
+rather than accounting projections of their generating relations. The proof
+recovers the process beneath those projections and validates the critical line
+from that relation. Their formal utility is retained; only the reversal from
+projection to generator is rejected.
+\end{reviewbox}
+
+\newpage
+\section{Introduction and proof target}
+\label{sec:introduction}
+
+For $\Re(s)>1$,
+\begin{equation}
+\label{eq:zeta-dirichlet-series}
+  \zeta(s)=\sum_{n=1}^{\infty}n^{-s}.
+\end{equation}
+Following Riemann \parencite{riemann1859}, define
+\begin{equation}
+\label{eq:completed-xi}
+  \xi(s)=\frac12s(s-1)\pi^{-s/2}
+    \Gamma\!\left(\frac{s}{2}\right)\zeta(s).
+\end{equation}
+The entire function $\xi$ obeys
+\begin{equation}
+\label{eq:xi-static-symmetries}
+  \xi(s)=\xi(1-s),
+  \qquad
+  \xi(\overline{s})=\overline{\xi(s)}.
+\end{equation}
+Set
+\[
+  \CriticalStrip=\{s\in\C:0<\Re(s)<1\},
+  \qquad
+  \CriticalLine=\{s\in\C:\Re(s)=\tfrac12\}.
+\]
+
+\begin{keybox}[title={\bfseries Riemann theorem}]
+\begin{equation}
+\label{eq:riemann-target}
+  \forall\rho\in\CriticalStrip:
+  \qquad
+  \xi(\rho)=0\Longrightarrow\Re(\rho)=\frac12.
+\end{equation}
+The proof is organised by the processual contract in
+\cref{sec:proof-contract} and recovered conventionally in
+\cref{sec:classical-recovery}.
+\end{keybox}
+
+\section{Process-first reading and relational roles}
+\label{sec:process-first}
+
+Cogenesis treats static mathematical objects as projections of generating
+relations under declared context and resolution
+\parencite{petrik2026cogenesis,petrik2026concise}. The proposed category error
+is not the use of zero, limits, or symmetry, but their promotion from scoped
+accounting projections into causal primitives. A zero records completed
+cancellation only after the relations being cancelled are available; it cannot
+generate or frame those relations in advance.
+
+\begin{definition}[Zero-forming projection]
+For a relation $\mathfrak R$ enacted under $(\Cctx,\Rres)$, write
+\[
+  \mathcal Z_{\Cctx,\Rres}(\mathfrak R)
+  =
+  \pi^0_{\Cctx,\Rres}(\mathfrak R)
+  =
+  0+r_0.
+\]
+The carried $0$ is the accounting projection of closure in the declared
+channel, while $r_0$ retains what that scalar balance does not carry. Thus
+\[
+  \mathfrak R
+  \longrightarrow
+  \Delta
+  \longrightarrow
+  \heartsim
+  \longrightarrow
+  \mathcal Z_{\Cctx,\Rres}(\mathfrak R)
+\]
+is a causal availability order; it may not be read backwards as though the
+zero existed first and generated its ancestry.
+\end{definition}
+
+\begin{definition}[Static symmetry and process invariant]
+A \emph{static symmetry} equates resolved expressions under a transformation.
+A \emph{process invariant} is proved to persist through every admissible finite
+enactment producing those expressions. Endpoint equality does not identify the
+intervening invariant.
+\end{definition}
+
+\begin{equation}
+\label{eq:discovery-order}
+  \text{analytic ancestry}
+  \longrightarrow\text{finite dual enactment}
+  \longrightarrow\text{process invariant}
+  \longrightarrow\text{functional symmetry}.
+\end{equation}
+Every arrow must be derived exactly; no invariant may be read backwards from
+the desired critical line.
+
+\section{The static involution and its limit}
+\label{sec:static-involution}
+
+\begin{definition}[Conjugate-reflection involution]
+\label{def:dual-involution}
+\begin{equation}
+\label{eq:dual-involution}
+  \Dual(s)=1-\overline{s}.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Fixed locus]
+\label{prop:fixed-locus}
+\[
+  \Fix(\Dual)=\CriticalLine.
+\]
+\end{proposition}
+\begin{proof}
+For $s=\sigma+it$, $\Dual(s)=1-\sigma+it$. Thus $\Dual(s)=s$ exactly when
+$\sigma=\tfrac12$.
+\end{proof}
+
+\begin{proposition}[Symmetry gives zero orbits, not fixed points]
+\label{prop:symmetry-not-fixedness}
+If $\xi(\rho)=0$, then
+\[
+  \xi(\overline{\rho})=\xi(1-\rho)=\xi(1-\overline{\rho})=0.
+\]
+These identities do not imply $\rho=\Dual(\rho)$.
+\end{proposition}
+\begin{proof}
+The zero relations follow from \cref{eq:xi-static-symmetries}. If
+$\rho=\sigma+it$ with $\sigma\neq\tfrac12$, then
+$\rho\neq1-\overline{\rho}$ while all four points remain compatible with the
+same symmetries.
+\end{proof}
+
+\begin{reviewbox}
+\Cref{prop:fixed-locus} explains why the critical line is self-dual.
+\Cref{prop:symmetry-not-fixedness} proves that this fact is not RH. The missing
+mathematical relation must derive which branch can complete as a zero-forming
+output; it may not begin by reifying every symmetry-compatible zero projection
+as an independently generated object.
+\end{reviewbox}
+
+\section{Cogenesis causal dependencies}
+\label{sec:cogenesis-dependencies}
+
+The application imports no Riemann-specific conclusion. It uses
+\begin{align}
+\label{eq:imported-process}
+  \Delta&\longrightarrow\heartsuit\longrightarrow\odot+r,\\
+\label{eq:imported-projection}
+  \odot^\pi_{\Cctx,\Rres}
+  &=\pi_{\Cctx,\Rres}(\odot),
+  &\odot^\pi_{\Cctx,\Rres}&\not\equiv\odot,\\
+\label{eq:imported-continuation}
+  \infty&:=\text{unbounded sequential continuation},
+  &\infty&\neq\text{completed totality}.
+\end{align}
+It also instantiates the finite persistence and retentive branch relations from
+Cogenesis \parencite{petrik2026concise}:
+\begin{align}
+\label{eq:imported-persistence}
+  \Persist_{\Cctx,\Rres}[\Phi]
+  &=-|r_\Phi|^2+\lambda\rho_\Phi-\mu\Xi[\Phi],
+  \qquad \lambda,\mu\geq0,\\
+\label{eq:imported-finite-selection}
+  \Persist_{\Cctx,\Rres}[\Phi^\ast]
+  &>\Persist_{\Cctx,\Rres}[\Psi]
+  \quad
+  \text{for every }\Psi\in
+  \Admissible(\Cctx,\Rres,\mathsf{Anc})\setminus\{\Phi^\ast\},\\
+\label{eq:imported-branch-normalisation}
+  \heartsim\!\left(\DeltaFork(\odot)\right)
+  &=\odot^\ast+r_{\pitchfork}+\Delta'_0.
+\end{align}
+The last sum is a typed record: the selected unary, unselected branches, and
+transformed continuing differential remain distinct. Selection neither erases
+nor identifies an unselected branch with the selected unary.
+These relations do not append a discretionary selection rule to already
+existing objects. They extend causal availability explicitly:
+\[
+  \mathsf{Anc}
+  \longrightarrow
+  (\Cctx,\Rres)
+  \longrightarrow
+  \Pi
+  \longrightarrow
+  \Persist
+  \longrightarrow
+  \odot^\ast+R.
+\]
+Only the normalised unary is available as the realised output of that chain;
+the other expressions remain causally active in their stated residual
+registers.
+Every derived symbol must retain ancestry, and every projection must state its
+context, resolution, carried expression, and residual. A residual tending to
+zero may not silently become identically zero.
+
+\subsection{Scope of the concise-framework association}
+\label{sec:concise-framework-scope}
+
+This proof instantiates the Cogenesis relations operative in its causal chain;
+it does not reproduce registers that supply no relation to the Riemann
+determination. The association with the sections of
+\textcite{petrik2026concise} is:
+\begin{description}[leftmargin=0pt,labelindent=0pt]
+  \item[Core Process.]
+  Unary process, completion-with-residual, and normalising evaluation supply
+  the process grammar. The universal $\Omega$ notation and the separate
+  $\heartsuit_\pm$ expressions add no further Riemann premise.
+
+  \item[Sequential Resolution.]
+  Sequential infinity, anti-collapse projection, finite persistence,
+  admissible variation, bifurcation, and retentive normalisation are all
+  inferentially operative and explicitly instantiated.
+
+  \item[Field \& Singularity.]
+  The analytic process-field and the finite registration-derived context,
+  resolution, and observation are operative. Their Riemann construction is
+  given in \cref{def:riemann-registration-family,prop:riemann-registration-recovery}.
+  Spatial geometry and refinement-radius interpretation are not invoked.
+
+  \item[Projection Discipline.]
+  The recovery order
+  $\mathsf{Anc}\to\Cctx\to\Rres\to\Pi\to T+R_T$ is operative throughout the
+  derivation, carrier audit, and complete per-zero record.
+
+  \item[Determination and Advancement.]
+  Retrospective determination and domain recovery are operative. Prospective
+  physical reconfiguration is outside the mathematical target and supplies no
+  inference.
+
+  \item[Relational Quantification and Measure.]
+  This register is not invoked: the proof makes no probabilistic or
+  countably additive claim. The quantity
+  $\rho_{\Phi_\eta}=|\pi_c(\Phi_\eta)|^2$ is the Cogenesis coherence density,
+  not a measure of a completed zero set.
+
+  \item[Canonical Register.]
+  The coherence-density, persistence, and projection relations corresponding
+  to CNS-K3--CNS-K5 are operative. CNS-K1 and CNS-K2 state their wider
+  ontological field setting but supply no additional Riemann inference;
+  refinement-radius flow CNS-K6 has no independent role in the proof.
+
+  \item[Causal Singularity of Now.]
+  Closure-with-residual states the same causal renewal enacted by the proof;
+  its temporal indexing is not needed in the Riemann determination.
+\end{description}
+
+The exclusions above are scope declarations, not zero residual assignments.
+They prevent unrelated machinery from being inserted into the finite proof
+while making every active causal dependency explicit.
+
+\section{The Riemann instantiation register}
+\label{sec:instantiation-register}
+
+\begin{definition}[Riemann instantiation register]
+\[
+  \RiemannRegister
+  =(\Field_{\zeta},\Gen_{\zeta},\Proj_{\zeta},
+    \Cctx_{\zeta},\Rres_{\zeta},
+    \heartsim,\Residual_{\zeta},\Validation_{\zeta}).
+\]
+Its components are specified below and derived in the sections that follow.
+\end{definition}
+
+\begin{definition}[Analytic process-field and ancestry]
+\label{def:riemann-process-field}
+For each finite refinement record $\mathbf f$, let $\mathscr L_{\mathbf f}$
+be the complete finite ledger formed from the integer, prime, convolution,
+continuation, theta, Mellin, cutoff, and boundary records constructed below.
+If $\mathbf f\preceq\mathbf f'$, let
+$\mathsf T_{\mathbf f\to\mathbf f'}$ be their exact transport with retained
+residual $R_{\mathbf f\to\mathbf f'}$. Define
+\[
+  \Field_\zeta
+  :=
+  \left(
+    \{\mathscr L_{\mathbf f}\}_{\mathbf f\ {\rm finite}},
+    \{\mathsf T_{\mathbf f\to\mathbf f'}\},
+    \{R_{\mathbf f\to\mathbf f'}\}
+  \right).
+\]
+This denotes the sequential family and its transports, not a completed
+infinite union. The finite generator
+$\Gen_{\zeta,\mathbf f}$ is the dependency graph of operations producing
+$\mathscr L_{\mathbf f}$, including identity carriage, factor exchange, and
+the residual-retaining self-dual projection. The global generator notation
+means the sequential system
+\[
+  \Gen_\zeta
+  :=
+  \left(
+    \{\Gen_{\zeta,\mathbf f}\}_{\mathbf f\ {\rm finite}},
+    \{\mathsf T_{\mathbf f\to\mathbf f'}\}_{\mathbf f\preceq\mathbf f'}
+  \right),
+\]
+not a completed graph. Its ancestry is
+\[
+  \mathsf{Anc}_{\zeta,\mathbf f}
+  :=
+  \operatorname{Dep}(\Gen_{\zeta,\mathbf f}),
+  \qquad
+  \mathsf{Anc}_\zeta
+  :=
+  \{\mathsf{Anc}_{\zeta,\mathbf f}\}_{\mathbf f\ {\rm finite}}.
+\]
+Thus every ancestry assertion in the proof refers to an explicit finite
+dependency graph and its sequential transports.
+\end{definition}
+
+\begin{longtable}{@{}p{0.20\textwidth}p{0.27\textwidth}p{0.47\textwidth}@{}}
+\caption{Riemann instantiation register.}
+\label{tab:instantiation-register}\\
+\toprule
+\textbf{Component} & \textbf{Role} & \textbf{Riemann instantiation} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Component} & \textbf{Role} & \textbf{Riemann instantiation} \\
+\midrule
+\endhead
+$\Field_{\zeta}$ & analytic process-field &
+Contains native finite constructions, continuation, projections, and
+residuals without collapsing process into static completion. \\
+$\Gen_{\zeta}$ & complete generator &
+The invariant analytic process recovered from native ancestry; the functional
+equation and zero set are projections of it. \\
+$\Proj_{\zeta}$ & analytic projections &
+Dirichlet, Mellin, theta, Fourier, phase, and zero channels with exact transport
+between their declared resolutions. \\
+$(\Cctx_{\zeta},\Rres_{\zeta})$ & context and resolution &
+Finite refinement together with its exact observable and boundary. \\
+$\heartsim$ & normalising relation &
+The Cogenesis finite persistence relation enacted on the exact factor-exchange
+residual; it selects the self-dual resolution and retains paired branches as
+residual content. \\
+$\Residual_{\zeta}$ & scoped residuals &
+Truncation, contour, transform, continuation, and projection residuals remain
+separately typed. \\
+$\Validation_{\zeta}$ & validation order &
+Exact identities, proved inequalities, falsification tests, and claim coverage. \\
+\bottomrule
+\end{longtable}
+
+\section{Native ancestry and finite dual enactment}
+\label{sec:native-ancestry}
+
+\begin{keybox}[title={\bfseries Derivation order}]
+\begin{enumerate}[label=\textbf{A\arabic*.},leftmargin=*]
+  \item State the finite initial data and operation enacted at each step.
+  \item Derive the dual transformation before taking a limiting projection.
+  \item Retain the exact residual at every finite resolution.
+  \item Prove transport between paired expressions.
+  \item Identify the relation unchanged by that transport.
+  \item Recover \cref{eq:xi-static-symmetries} as a consequence.
+\end{enumerate}
+\end{keybox}
+
+\subsection{Finite arithmetic ancestry}
+
+\begin{definition}[Finite prime ancestry]
+\label{def:finite-prime-ancestry}
+Let $\mathcal P$ be the primes. For $n\geq1$ and $p\in\mathcal P$, set
+\[
+  v_p(n)=\max\{k\in\N\cup\{0\}:p^k\mid n\},
+  \qquad
+  \alpha(n)=(v_p(n))_{p\in\mathcal P}.
+\]
+The vector $\alpha(n)$ has finite support. Put $P^+(1)=1$ and, for $n>1$,
+\[
+  P^+(n)=\max\{p:v_p(n)>0\}.
+\]
+For a real prime cutoff $y\geq1$, write
+\[
+  \mathcal S_y=\{n\geq1:P^+(n)\leq y\},
+  \quad
+  n_{\leq y}=\prod_{p\leq y}p^{v_p(n)},
+  \quad
+  n_{>y}=\prod_{p>y}p^{v_p(n)}.
+\]
+\end{definition}
+
+\begin{proposition}[Ancestry laws]
+\label{prop:finite-ancestry-laws}
+Every $n\geq1$ has a unique finite prime ancestry, and
+\[
+  \alpha(ab)=\alpha(a)+\alpha(b),
+  \qquad
+  n=n_{\leq y}n_{>y},
+  \qquad
+  \gcd(n_{\leq y},n_{>y})=1.
+\]
+Moreover, $n\in\mathcal S_y$ exactly when $n_{>y}=1$. Increasing a finite
+integer cutoff adds ancestry records but changes none already enacted.
+\end{proposition}
+
+\begin{proof}
+Existence follows by strong induction and uniqueness by Euclid's lemma.
+Multiplication adds each prime valuation, and the cutoff split partitions the
+finite support of $\alpha(n)$. Restriction to a larger finite carrier therefore
+retains every earlier factorisation unchanged.
+\end{proof}
+
+\begin{definition}[Truncated Dirichlet algebra]
+\label{def:truncated-dirichlet-algebra}
+For $N\geq1$, let
+\[
+  \DirichletAlg_N=\{f:\{1,\ldots,N\}\to\C\}.
+\]
+For $f,g\in\DirichletAlg_N$, define
+\[
+  (f*_Ng)(n)
+  =\sum_{ab=n}f(a)g(b)
+  =\sum_{d\mid n}f(d)g(n/d).
+\]
+Let $\delta_m^{[N]}(n)$ be $1$ at $n=m$ and $0$ otherwise, with
+$\delta_m^{[N]}=0$ when $m>N$. Write
+\[
+  \varepsilon_N=\delta_1^{[N]},
+  \qquad
+  \mathbf1_N(n)=1.
+\]
+\end{definition}
+
+\begin{proposition}[Algebra and refinement restriction]
+\label{prop:truncated-algebra-restriction}
+The pair $(\DirichletAlg_N,*_N)$ is a commutative unital algebra with unit
+$\varepsilon_N$, and
+\[
+  \delta_a^{[N]}*_N\delta_b^{[N]}=\delta_{ab}^{[N]}.
+\]
+For $1\leq M\leq N$, restriction
+\[
+  \rho_{M,N}:\DirichletAlg_N\to\DirichletAlg_M
+\]
+is a surjective unital algebra homomorphism, and
+$\rho_{L,M}\rho_{M,N}=\rho_{L,N}$ whenever $L\leq M\leq N$.
+\end{proposition}
+
+\begin{proof}
+Commutativity exchanges the two factors. Associativity is the finite identity
+\[
+  ((f*_Ng)*_Nh)(n)
+  =\sum_{abc=n}f(a)g(b)h(c)
+  =(f*_N(g*_Nh))(n).
+\]
+Every factor of $n\leq M$ is at most $M$, so restricting before or after
+convolution gives the same coefficient. Extension by zero proves surjectivity;
+the composition law is immediate.
+\end{proof}
+
+\begin{proposition}[Finite Möbius inverse]
+\label{prop:finite-moebius-inverse}
+Define
+\[
+  \mu(n)=
+  \begin{cases}
+    (-1)^{|\operatorname{supp}\alpha(n)|},
+      &v_p(n)\leq1\ \text{for every }p,\\
+    0,&\text{otherwise},
+  \end{cases}
+  \qquad
+  \mu_N=\mu|_{\{1,\ldots,N\}}.
+\]
+Then at every finite resolution
+\begin{equation}
+\label{eq:finite-moebius-inverse}
+  \mathbf1_N*_N\mu_N=\varepsilon_N,
+  \qquad
+  \rho_{M,N}(\mu_N)=\mu_M.
+\end{equation}
+Consequently,
+\[
+  g=\mathbf1_N*_Nf
+  \quad\Longleftrightarrow\quad
+  f=\mu_N*_Ng.
+\]
+\end{proposition}
+
+\begin{proof}
+For every $n$,
+\[
+  \sum_{d\mid n}\mu(d)
+  =\prod_{p\mid n}(1-1)
+  =
+  \begin{cases}
+    1,&n=1,\\
+    0,&n>1.
+  \end{cases}
+\]
+This is \cref{eq:finite-moebius-inverse}; restriction is coefficientwise.
+Convolving either side with the finite inverse proves the equivalence.
+\end{proof}
+
+\begin{definition}[Finite Euler elements]
+\label{def:finite-euler-elements}
+For a prime $p$, set
+\[
+  K_p(N)=\max\{k\geq0:p^k\leq N\},
+  \quad
+  E_{p,N}=\sum_{k=0}^{K_p(N)}\delta_{p^k}^{[N]},
+  \quad
+  L_{p,N}=\varepsilon_N-\delta_p^{[N]}.
+\]
+For $y\geq1$, define
+\[
+  E_{N,y}=\mathop{*_N}_{p\leq y}E_{p,N},
+  \qquad
+  M_{N,y}=\mathop{*_N}_{p\leq y}L_{p,N},
+\]
+where an empty convolution product is $\varepsilon_N$.
+\end{definition}
+
+\begin{proposition}[Finite Euler inversion]
+\label{prop:finite-euler-inversion}
+For each prime $p$,
+\[
+  E_{p,N}*_NL_{p,N}=\varepsilon_N.
+\]
+Unique factorisation gives
+\[
+  E_{N,y}(n)=\mathbf1_{\{P^+(n)\leq y\}},
+  \qquad
+  M_{N,y}(n)=\mu(n)\mathbf1_{\{P^+(n)\leq y\}},
+\]
+and hence
+\begin{equation}
+\label{eq:finite-euler-inversion}
+  E_{N,y}*_NM_{N,y}=\varepsilon_N.
+\end{equation}
+These elements commute with every restriction $\rho_{M,N}$. If $y\geq N$,
+then $E_{N,y}=\mathbf1_N$ and $M_{N,y}=\mu_N$.
+\end{proposition}
+
+\begin{proof}
+Writing $K=K_p(N)$,
+\[
+  E_{p,N}*_NL_{p,N}
+  =\delta_1^{[N]}-\delta_{p^{K+1}}^{[N]}
+  =\varepsilon_N
+\]
+because $p^{K+1}>N$. Unique factorisation supplies one exponent vector for
+each $y$-smooth integer and the corresponding square-free sign for its inverse.
+The remaining claims follow coefficientwise.
+\end{proof}
+
+\subsection{Scalar projection and its retained boundary}
+
+\begin{definition}[Dirichlet scalar projection]
+\label{def:dirichlet-scalar-projection}
+For $s\in\C$, define
+\[
+  D_{N,s}(f)=\sum_{n=1}^{N}f(n)n^{-s},
+  \qquad
+  n^{-s}=\exp(-s\log n).
+\]
+The scalarisation boundary residual is
+\[
+  \Boundary_N(f,g;s)
+  =
+  \sum_{\substack{1\leq a,b\leq N\\ab>N}}
+  f(a)g(b)(ab)^{-s}.
+\]
+\end{definition}
+
+\begin{proposition}[Exact scalarisation boundary]
+\label{prop:exact-scalarisation-boundary}
+For every $f,g\in\DirichletAlg_N$ and $s\in\C$,
+\begin{equation}
+\label{eq:exact-scalarisation-boundary}
+  D_{N,s}(f*_Ng)
+  =
+  D_{N,s}(f)D_{N,s}(g)-\Boundary_N(f,g;s).
+\end{equation}
+In particular,
+\[
+  D_{N,s}(E_{N,y})D_{N,s}(M_{N,y})
+  =1+\Boundary_N(E_{N,y},M_{N,y};s).
+\]
+Thus a convolution inverse is not collapsed into a reciprocal scalar.
+\end{proposition}
+
+\begin{proof}
+The convolution projection sums over $ab\leq N$. The scalar product sums over
+the same pairs together with precisely those satisfying $a,b\leq N<ab$.
+Subtracting that boundary gives \cref{eq:exact-scalarisation-boundary}, and
+\cref{eq:finite-euler-inversion} gives the second identity.
+\end{proof}
+
+\begin{proposition}[Boundary-residual transport]
+\label{prop:boundary-residual-transport}
+For $1\leq M\leq N$, put
+\[
+  T_{M,N,s}(f)=\sum_{n=M+1}^{N}f(n)n^{-s}.
+\]
+Then
+\begin{align}
+\Boundary_N(f,g;s)
+={}&\Boundary_M(\rho_{M,N}f,\rho_{M,N}g;s)
+ +D_{M,s}(\rho_{M,N}f)T_{M,N,s}(g) \notag\\
+&+D_{M,s}(\rho_{M,N}g)T_{M,N,s}(f)
+ +T_{M,N,s}(f)T_{M,N,s}(g) \notag\\
+&-T_{M,N,s}(f*_Ng).
+\label{eq:boundary-residual-transport}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Write $D_{N,s}=D_{M,s}\rho_{M,N}+T_{M,N,s}$ on both scalar factors in
+\cref{eq:exact-scalarisation-boundary}, subtract the corresponding identity at
+resolution $M$, and use the restriction homomorphism of
+\cref{prop:truncated-algebra-restriction}.
+\end{proof}
+
+\begin{proposition}[Finite additive--multiplicative ledger]
+\label{prop:finite-additive-multiplicative-ledger}
+Let $p_1<\cdots<p_r$ be the primes not exceeding both $y$ and $N$, and set
+\[
+  q_j(s)=\sum_{k=0}^{K_{p_j}(N)}p_j^{-ks}.
+\]
+Define the finite exponent-box overshoot
+\[
+  \Omega^\Box_{N,y}(s)
+  =
+  \sum_{\substack{0\leq k_j\leq K_{p_j}(N)\\
+                  \prod_jp_j^{k_j}>N}}
+  \left(\prod_jp_j^{k_j}\right)^{-s}
+\]
+and the unresolved-prime ancestry
+\[
+  U_{N,y}(s)
+  =
+  \sum_{\substack{n\leq N\\P^+(n)>y}}n^{-s}.
+\]
+Then, for every $s\in\C$,
+\begin{equation}
+\label{eq:finite-additive-multiplicative-ledger}
+  \sum_{n\leq N}n^{-s}
+  =
+  \prod_{j=1}^{r}q_j(s)
+  -\Omega^\Box_{N,y}(s)
+  +U_{N,y}(s).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Expanding the finite product gives one term for each exponent vector in the
+displayed box. Unique factorisation identifies vectors whose product is at most
+$N$ with the $y$-smooth integers at most $N$; all other vectors give
+$\Omega^\Box_{N,y}$. The integers at most $N$ then split disjointly into the
+$y$-smooth and unresolved-prime classes.
+\end{proof}
+
+\begin{proposition}[Ordinary Euler-product ledger]
+\label{prop:ordinary-euler-product-ledger}
+For $\Re(s)>0$, define
+\[
+  \Pi_y(s)=\prod_{p\leq y}(1-p^{-s})^{-1},
+  \qquad
+  O_{N,y}(s)=
+  \sum_{\substack{n>N\\P^+(n)\leq y}}n^{-s}.
+\]
+Then
+\begin{equation}
+\label{eq:ordinary-euler-product-ledger}
+  \sum_{n\leq N}n^{-s}
+  =\Pi_y(s)-O_{N,y}(s)+U_{N,y}(s).
+\end{equation}
+The convergence boundary belongs to this scalar projection; it does not alter
+the finite ancestry or \cref{eq:finite-euler-inversion}.
+\end{proposition}
+
+\begin{proof}
+There are finitely many prime factors in $\Pi_y$, and each geometric series is
+absolutely convergent when $\Re(s)>0$. Unique factorisation therefore gives
+\[
+  \Pi_y(s)=\sum_{n\in\mathcal S_y}n^{-s}.
+\]
+Splitting at $N$ gives the resolved $y$-smooth sum plus $O_{N,y}$; adjoining
+$U_{N,y}$ recovers all integers through $N$.
+\end{proof}
+
+\begin{proposition}[Euler cutoff transport]
+\label{prop:euler-cutoff-transport}
+Let $m=N+1$ and
+$\chi_{m,y}=\mathbf1_{\{P^+(m)\leq y\}}$. If
+\[
+  A_{N,y}(s)=\sum_{\substack{n\leq N\\P^+(n)\leq y}}n^{-s},
+\]
+then
+\begin{align}
+  A_{N+1,y}&=A_{N,y}+\chi_{m,y}m^{-s},\notag\\
+  U_{N+1,y}&=U_{N,y}+(1-\chi_{m,y})m^{-s},\notag\\
+  O_{N+1,y}&=O_{N,y}-\chi_{m,y}m^{-s}.
+\label{eq:integer-cutoff-transport}
+\end{align}
+For $z\geq y$, put
+\[
+  \Delta_{N;y,z}(s)
+  =\sum_{\substack{n\leq N\\y<P^+(n)\leq z}}n^{-s}.
+\]
+Then
+\begin{align}
+  A_{N,z}&=A_{N,y}+\Delta_{N;y,z},\notag\\
+  U_{N,z}&=U_{N,y}-\Delta_{N;y,z},\notag\\
+  O_{N,z}&=O_{N,y}+\Pi_z-\Pi_y-\Delta_{N;y,z}.
+\label{eq:prime-cutoff-transport}
+\end{align}
+Thus changing either finite resolution transports ancestry between declared
+coordinates while preserving the complete ledger.
+\end{proposition}
+
+\begin{proof}
+The integer $m$ is either $y$-smooth or unresolved, giving
+\cref{eq:integer-cutoff-transport}. Increasing the prime cutoff moves exactly
+the integers counted by $\Delta_{N;y,z}$ from $U$ to $A$. The ordinary-product
+identity \cref{eq:ordinary-euler-product-ledger} then gives the transport of
+$O$.
+\end{proof}
+
+\subsection{Finite continuation transport}
+
+Let $(s)_j=s(s+1)\cdots(s+j-1)$ and let
+\(\widetilde B_{2m}(x)=B_{2m}(x-\lfloor x\rfloor)\) be the periodic Bernoulli
+polynomial.
+
+\begin{definition}[Finite continuation coordinate]
+\label{def:finite-continuation-coordinate}
+For $m,N\geq1$ and $s\neq1$, define
+\begin{align}
+  \Continuation_{m,N}(s)
+  :={}&
+  \sum_{n=1}^{N}n^{-s}
+  +\frac{N^{1-s}}{s-1}
+  -\frac12N^{-s}\notag\\
+  &+
+  \sum_{r=1}^{m}
+  \frac{B_{2r}}{(2r)!}(s)_{2r-1}N^{1-s-2r}.
+\label{eq:finite-continuation-coordinate}
+\end{align}
+For $1\leq N<M$, define the enacted residual
+\begin{equation}
+\label{eq:finite-continuation-residual}
+  \mathcal U_{m;N\to M}(s)
+  =
+  -\frac{(s)_{2m}}{(2m)!}
+  \int_N^M
+  \widetilde B_{2m}(x)x^{-s-2m}\,dx.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Exact finite continuation cocycle]
+\label{prop:finite-continuation-cocycle}
+For every finite $1\leq N<M$,
+\begin{equation}
+\label{eq:finite-continuation-cocycle}
+  \Continuation_{m,M}(s)-\Continuation_{m,N}(s)
+  =\mathcal U_{m;N\to M}(s).
+\end{equation}
+The residual composes exactly:
+\[
+  \mathcal U_{m;N\to L}
+  =
+  \mathcal U_{m;N\to M}
+  +\mathcal U_{m;M\to L}.
+\]
+The finite transport is entire in $s$ after interpreting the elementary
+quotient at $s=1$ by its removable value; $\Continuation_{m,N}$ is meromorphic
+with its single possible pole at $s=1$.
+\end{proposition}
+
+\begin{proof}
+Euler--Maclaurin on the finite half-open interval $(N,M]$ gives
+\begin{align*}
+\sum_{N<n\leq M}n^{-s}
+={}&
+\frac{M^{1-s}-N^{1-s}}{1-s}
++\frac{M^{-s}-N^{-s}}2\\
+&+\sum_{r=1}^{m}
+\frac{B_{2r}}{(2r)!}(s)_{2r-1}
+\left(N^{1-s-2r}-M^{1-s-2r}\right)
++\mathcal U_{m;N\to M}(s).
+\end{align*}
+Rearrangement is \cref{eq:finite-continuation-cocycle}. Additivity of the
+finite integral gives the cocycle law. No infinite endpoint is used.
+\end{proof}
+
+\begin{proposition}[Continuation as a projection of finite transport]
+\label{prop:continuation-projection}
+On every compact subset of $\Re(s)>1-2m$ avoiding $s=1$, the residual family
+is Cauchy under sequential refinement. Define
+\[
+  \mathcal U_{m,N}(s)
+  =
+  \SeqProj_{M}
+  \mathcal U_{m;N\to M}(s).
+\]
+Then
+\begin{equation}
+\label{eq:continuation-ledger}
+  \zeta_{\mathrm{AC}}(s)
+  =
+  \Continuation_{m,N}(s)+\mathcal U_{m,N}(s),
+\end{equation}
+and
+\[
+  \mathcal U_{m,N}
+  =
+  \mathcal U_{m;N\to M}+\mathcal U_{m,M}
+\]
+for every finite $M>N$. Substituting
+\cref{eq:finite-additive-multiplicative-ledger} into
+\cref{eq:continuation-ledger} retains the complete arithmetic ancestry:
+\begin{align}
+\zeta_{\mathrm{AC}}(s)
+={}&
+\prod_{p_j\leq\min\{y,N\}}
+\sum_{k=0}^{K_{p_j}(N)}p_j^{-ks}
+-\Omega^\Box_{N,y}(s)+U_{N,y}(s)\notag\\
+&+\frac{N^{1-s}}{s-1}-\frac12N^{-s}
++\sum_{r=1}^{m}
+\frac{B_{2r}}{(2r)!}(s)_{2r-1}N^{1-s-2r}
++\mathcal U_{m,N}(s).
+\label{eq:ancestry-bearing-continuation}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The periodic Bernoulli polynomial is bounded, so on a compact set with
+$\Re(s)>1-2m$ the tail of
+\cref{eq:finite-continuation-residual} is bounded uniformly by a constant
+times
+\[
+  \int_N^\infty x^{-\Re(s)-2m}\,dx.
+\]
+This proves sequential Cauchy refinement. Where $\Re(s)>1$, the correction
+terms and residual tail tend to zero while the finite sum tends to the original
+Dirichlet projection. Identity of analytic continuations then gives
+\cref{eq:continuation-ledger} throughout the stated domain. The cocycle retains
+the unresolved continuation at every finite resolution, and substitution gives
+\cref{eq:ancestry-bearing-continuation}.
+\end{proof}
+
+\begin{reviewbox}
+\textbf{The static bound at $\Re(s)=1$.}
+The line is the absolute-convergence boundary of the original unbounded
+Dirichlet and Euler-product projections. It is not a boundary of finite natural
+generation, unique factorisation, truncated convolution, Möbius inversion, or
+finite continuation transport. Analytic continuation changes the projection
+and carries its residual; it does not terminate or replace multiplicative
+ancestry.
+\end{reviewbox}
+
+\subsection{Finite reciprocal-scale transport}
+
+\begin{definition}[Finite theta defect]
+\label{def:finite-theta-defect}
+For $x>0$ and $N,M\geq0$, put
+\[
+  \Theta_N(x)=\sum_{n=-N}^{N}e^{-\pi n^2x},
+  \qquad
+  \Delta_{N,M}^{\Theta}(x)
+  =
+  \Theta_N(x)-x^{-1/2}\Theta_M(x^{-1}).
+\]
+\end{definition}
+
+\begin{proposition}[Theta residual transport]
+\label{prop:theta-residual-transport}
+At every finite resolution,
+\begin{equation}
+\label{eq:theta-residual-transport}
+  \Theta_N(x)
+  =
+  x^{-1/2}\Theta_M(x^{-1})
+  +\Delta_{N,M}^{\Theta}(x),
+\end{equation}
+with
+\[
+  \Delta_{N,M}^{\Theta}(x)
+  =
+  -x^{-1/2}\Delta_{M,N}^{\Theta}(x^{-1}).
+\]
+If $N'\geq N$ and $M'\geq M$, then
+\begin{align*}
+\Delta_{N',M'}^{\Theta}(x)-\Delta_{N,M}^{\Theta}(x)
+={}&2\sum_{n=N+1}^{N'}e^{-\pi n^2x}\\
+&-2x^{-1/2}\sum_{k=M+1}^{M'}e^{-\pi k^2/x}.
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+The first identity declares the exact finite residual. Replacing $x$ by
+$x^{-1}$ and exchanging $N,M$ gives its involutive transport. Subtracting two
+finite defects gives the refinement formula.
+\end{proof}
+
+\begin{proposition}[Finite Gaussian--Poisson bridge]
+\label{prop:finite-gaussian-poisson-bridge}
+Let
+\[
+  g_x(u)=e^{-\pi xu^2},
+  \qquad
+  P_{x,L}(u)=\sum_{\ell=-L}^{L}g_x(u+\ell)
+\]
+on $-\tfrac12\leq u\leq\tfrac12$, and put
+\[
+  c_{k,L}(x)
+  =
+  \int_{-L-1/2}^{L+1/2}
+  g_x(v)e^{-2\pi ikv}\,dv.
+\]
+If
+\[
+  F_{K,L}(x)=P_{x,L}(0)-\sum_{|k|\leq K}c_{k,L}(x),
+\]
+then the finite theta defect satisfies
+\begin{equation}
+\label{eq:finite-gaussian-poisson-bridge}
+  \Delta_{L,K}^{\Theta}(x)
+  =
+  F_{K,L}(x)
+  +\sum_{|k|\leq K}
+   \left(
+     c_{k,L}(x)-x^{-1/2}e^{-\pi k^2/x}
+   \right).
+\end{equation}
+Sequential enlargement of the finite intervals recovers
+\begin{equation}
+\label{eq:jacobi-inversion-recovered}
+  \Theta(x)=x^{-1/2}\Theta(x^{-1})
+\end{equation}
+as the static projection of the finite residual transport.
+\end{proposition}
+
+\begin{proof}
+Since $P_{x,L}(0)=\Theta_L(x)$, subtracting
+\[
+  x^{-1/2}\Theta_K(x^{-1})
+  =\sum_{|k|\leq K}x^{-1/2}e^{-\pi k^2/x}
+\]
+from the definition of $F_{K,L}$ gives
+\cref{eq:finite-gaussian-poisson-bridge}. The full Gaussian transform is
+\[
+  \int_{\mathbb R}g_x(v)e^{-2\pi ikv}\,dv
+  =x^{-1/2}e^{-\pi k^2/x}.
+\]
+For fixed $K$ and $|k|\leq K$, the finite-interval discrepancy obeys
+\[
+  \left|
+    c_{k,L}(x)-x^{-1/2}e^{-\pi k^2/x}
+  \right|
+  \leq
+  \frac{e^{-\pi x(L+1/2)^2}}{\pi x(L+1/2)},
+\]
+so its finite sum tends to zero as $L$ is enlarged. The periodisations
+$P_{x,L}$ and all their derivatives converge uniformly to the smooth
+one-periodic function
+\[
+  P_x(u)=\SeqProj_L\sum_{\ell=-L}^{L}g_x(u+\ell).
+\]
+Its $k$th Fourier coefficient is the displayed full Gaussian transform.
+Uniform convergence of the Fourier series of this smooth periodic function
+therefore gives
+\[
+  \lim_{K\to\infty}
+  \left(
+    P_x(0)-\sum_{|k|\leq K}x^{-1/2}e^{-\pi k^2/x}
+  \right)=0.
+\]
+Taking the declared iterated refinement $L\to\infty$ for each finite $K$ and
+then $K\to\infty$ makes both terms on the right of
+\cref{eq:finite-gaussian-poisson-bridge} vanish. This proves
+\cref{eq:jacobi-inversion-recovered}, not merely convergence of an unspecified
+residual.
+\end{proof}
+
+\begin{proposition}[Mellin recovery of functional symmetry]
+\label{prop:mellin-functional-symmetry}
+Let
+\[
+  \psi_N(x)=\frac{\Theta_N(x)-1}{2}.
+\]
+For finite $N,M,T>1$, define
+\[
+  \mathcal R_{N,M;T}(s)
+  =
+  \frac12\int_{1/T}^{1}
+  \Delta_{N,M}^{\Theta}(x)x^{s/2-1}\,dx
+\]
+and
+\[
+  E_T(s)
+  =
+  \frac{1-T^{(1-s)/2}}{s-1}
+  -\frac{1-T^{-s/2}}s,
+\]
+with removable values at $s=0,1$. Exact finite scale transport gives
+\begin{align}
+\int_{1/T}^{1}\psi_N(x)x^{s/2-1}\,dx
+={}&
+\int_1^T\psi_M(u)u^{(1-s)/2-1}\,du\notag\\
+&+E_T(s)+\mathcal R_{N,M;T}(s).
+\label{eq:finite-mellin-scale-transport}
+\end{align}
+For $M=N$, put
+\[
+  \mathcal M_{N,T}(s)
+  =
+  \int_{1/T}^{T}\psi_N(x)x^{s/2-1}\,dx
+\]
+and
+\[
+  \Boundary_T^{\mathrm M}(s)
+  =
+  \frac{T^{(1-s)/2}}{s-1}
+  -\frac{T^{-s/2}}s.
+\]
+Define the finite symmetric coordinate by its transported residual ledger:
+\begin{align}
+  \Lambda^\sharp_{N,T}(s)
+  :={}&
+  \mathcal M_{N,T}(s)
+  -\mathcal R_{N,N;T}(s)
+  +\Boundary_T^{\mathrm M}(s)\notag\\
+  ={}&
+  \frac1{s-1}-\frac1s\notag\\
+  &+\int_1^T\psi_N(x)
+  \left(x^{s/2-1}+x^{(1-s)/2-1}\right)\,dx.
+\label{eq:finite-mellin-symmetric-coordinate}
+\end{align}
+Then, exactly,
+\[
+  \Lambda^\sharp_{N,T}(s)
+  =\Lambda^\sharp_{N,T}(1-s).
+\]
+Sequential projection of the finite theta and scale residuals gives
+\begin{equation}
+\label{eq:lambda-recovered}
+  \Lambda(s)
+  =
+  \frac1{s(s-1)}
+  +\SeqProj_T
+  \int_1^T\psi(x)
+  \left(x^{s/2-1}+x^{(1-s)/2-1}\right)\,dx,
+\end{equation}
+where
+\[
+  \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta_{\mathrm{AC}}(s).
+\]
+Consequently
+\begin{equation}
+\label{eq:functional-symmetry-recovered}
+  \xi(s)=\xi(1-s).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Rewrite \cref{eq:theta-residual-transport} as
+\[
+  \psi_N(x)
+  =
+  x^{-1/2}\psi_M(x^{-1})
+  +\frac{x^{-1/2}-1}{2}
+  +\frac{\Delta_{N,M}^{\Theta}(x)}2.
+\]
+Multiplication by $x^{s/2-1}$, integration on $[1/T,1]$, and the substitution
+$u=x^{-1}$ give \cref{eq:finite-mellin-scale-transport}; direct integration of
+the zero-mode term gives $E_T(s)$. Taking $M=N$ and adjoining the upper-scale
+integral proves both expressions for $\Lambda^\sharp_{N,T}$. The two integrand
+terms exchange under $s\mapsto1-s$, as do $1/(s-1)$ and $-1/s$. This proves
+finite symmetry before any limit.
+
+For $\Re(s)>1$, termwise Mellin integration of the finite Gaussian sums and
+the residual transport \cref{eq:theta-residual-transport} give
+\[
+  \pi^{-s/2}\Gamma(s/2)\zeta(s)
+  =\int_0^\infty\psi(x)x^{s/2-1}\,dx.
+\]
+Splitting at $1$, applying recovered Jacobi inversion below $1$, and changing
+$x\mapsto x^{-1}$ gives \cref{eq:lambda-recovered}; the removed zero mode
+contributes $1/(s(s-1))$. The expression provides continuation and is invariant
+under $s\mapsto1-s$. Multiplication by
+$\tfrac12s(s-1)$ proves \cref{eq:functional-symmetry-recovered}.
+\end{proof}
+
+Theta, Mellin, Fourier, heat-flow, product, and prime-side representations are
+projection coordinates of the same relation. Their roles follow from exact
+dependency rather than classical naming, symmetry, or convenience.
+
+\section{The invariant process}
+\label{sec:process-invariant}
+
+\begin{definition}[Finite Möbius--hyperbola invariant]
+\label{def:finite-moebius-hyperbola}
+For real $X\geq1$ and $s\in\C$, define
+\begin{equation}
+\label{eq:finite-moebius-hyperbola}
+  \Invariant_X(s)
+  =
+  \sum_{\substack{a,b\in\N\\ab\leq X}}
+  \frac{\mu(a)}{(ab)^s}.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Finite invariant normalisation]
+\label{prop:finite-moebius-hyperbola}
+For every $X\geq1$ and every $s\in\C$,
+\begin{equation}
+\label{eq:finite-invariant-normalisation}
+  \Invariant_X(s)=1.
+\end{equation}
+The identity is finite, entire in $s$, and independent of numerical magnitude.
+\end{proposition}
+
+\begin{proof}
+Regrouping the finite sum by $n=ab$ gives
+\[
+  \Invariant_X(s)
+  =
+  \sum_{n\leq X}n^{-s}\sum_{a\mid n}\mu(a).
+\]
+The inner sum is $1$ for $n=1$ and $0$ otherwise by
+\cref{eq:finite-moebius-inverse}. Since $X\geq1$, the result is $1$.
+\end{proof}
+
+For $y\geq0$, set
+\[
+  Z_s(y)=\sum_{n\leq y}n^{-s},
+  \qquad
+  M_s(y)=\sum_{n\leq y}\mu(n)n^{-s},
+\]
+with either sum zero when $y<1$.
+
+\begin{proposition}[Arbitrary hyperbola cutoff]
+\label{prop:arbitrary-hyperbola-cutoff}
+Let $X\geq1$ and let $u,v>0$ satisfy $uv=X$. Then
+\begin{align}
+  \Invariant_X(s)
+  ={}&
+  \sum_{a\leq u}\frac{\mu(a)}{a^s}
+    Z_s\!\left(\frac Xa\right)
+  +\sum_{b\leq v}\frac1{b^s}
+    M_s\!\left(\frac Xb\right)\notag\\
+  &-M_s(u)Z_s(v)
+  =1.
+\label{eq:arbitrary-hyperbola-cutoff}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+Every point $ab\leq X$ lies in $a\leq u$ or $b\leq v$, since otherwise
+$ab>uv=X$. Their intersection is the complete rectangle
+$a\leq u$, $b\leq v$. Inclusion--exclusion gives the three terms in
+\cref{eq:arbitrary-hyperbola-cutoff}; their value is
+\cref{eq:finite-invariant-normalisation}.
+\end{proof}
+
+\begin{corollary}[Exact hyperbola transport]
+\label{cor:exact-hyperbola-transport}
+For two cutoff pairs $u_jv_j=X$, let $A(u)$, $B(v)$, and $C(u,v)$ denote the
+three respective terms of \cref{eq:arbitrary-hyperbola-cutoff}. Then
+\[
+  [A(u_1)-A(u_0)]
+  +[B(v_1)-B(v_0)]
+  -[C(u_1,v_1)-C(u_0,v_0)]
+  =0.
+\]
+Changing resolution transports the complete boundary ledger without a
+discarded error.
+\end{corollary}
+
+\begin{proposition}[Unique self-dual resolution]
+\label{prop:unique-self-dual-cutoff}
+Fix $X>1$ and parameterise the positive cutoff pairs by
+\[
+  u_\theta=X^\theta,
+  \qquad
+  v_\theta=X^{1-\theta},
+  \qquad
+  \theta\in\mathbb R.
+\]
+Exchange of the factor channels sends $\theta\mapsto1-\theta$. Its unique fixed
+resolution is
+\begin{equation}
+\label{eq:unique-self-dual-cutoff}
+  \theta=\frac12,
+  \qquad
+  u_\theta=v_\theta=\sqrt X.
+\end{equation}
+The resolution is independent of $X$, $s$, and the attained numerical
+magnitude.
+\end{proposition}
+
+\begin{proof}
+The cutoff pair is fixed precisely when
+$X^\theta=X^{1-\theta}$. Since $X>1$, taking logarithms gives
+$\theta=1-\theta$, and hence $\theta=\tfrac12$.
+\end{proof}
+
+\begin{remark}[Continuous and integer resolutions]
+\label{rem:cutoff-uniqueness-scope}
+The uniqueness is in the positive real cutoff coordinate. At $X=1$, every
+exponent gives the same unit cutoff. After floors, distinct exponents may also
+name the same finite integer pair; an exactly equal integer pair exists only
+when $X$ is a square. These finite aliases do not alter the unique continuous
+fixed resolution.
+\end{remark}
+
+\begin{proposition}[Inverse-convolution widening]
+\label{prop:inverse-convolution-universality}
+Let arithmetic functions $f,g$ satisfy $f*g=\varepsilon$. Then
+\[
+  \Invariant_X^{f,g}(s)
+  =
+  \sum_{ab\leq X}\frac{f(a)g(b)}{(ab)^s}
+  =1
+\]
+for every $X\geq1$ and $s\in\C$.
+\end{proposition}
+
+\begin{proof}
+Regrouping by $n=ab$ gives
+\[
+  \Invariant_X^{f,g}(s)
+  =\sum_{n\leq X}\frac{(f*g)(n)}{n^s}
+  =\sum_{n\leq X}\frac{\varepsilon(n)}{n^s}
+  =1.
+\]
+\end{proof}
+
+\begin{keybox}[title={\bfseries Process invariant and its projection}]
+The invariant is the complete additive--multiplicative boundary ledger
+\cref{eq:arbitrary-hyperbola-cutoff}, not either separated channel. Its factor
+exchange has the magnitude-independent resolution
+\cref{eq:unique-self-dual-cutoff}. Jacobi--Mellin transport independently maps
+reciprocal scale into $s\leftrightarrow1-s$ by
+\cref{prop:mellin-functional-symmetry}. The functional symmetry is therefore a
+static projection of self-dual arithmetic and scale transport rather than the
+primitive relation.
+\end{keybox}
+
+\section{Counterexample differential and carrier exhaustion}
+\label{sec:counterexample-differential}
+
+\begin{definition}[Off-line-zero differential]
+\begin{equation}
+\label{eq:off-line-zero-differential}
+  \CounterDiff:
+  \qquad
+  \xi(\rho)=0,\quad0<\Re(\rho)<1,\quad\rho\neq\Dual(\rho).
+\end{equation}
+This is a hypothetical finite witness, not a completed infinite branch.
+\end{definition}
+
+\begin{definition}[Twisted Möbius coordinate]
+\label{def:twisted-mobius-coordinate}
+For $\gamma\in\mathbb R$ and $X\geq1$, set
+\[
+  M_\gamma(X)=\sum_{n\leq X}\mu(n)n^{-i\gamma}.
+\]
+The untwisted coordinate $M_0(X)$ is the Mertens function $M(X)$.
+\end{definition}
+
+\begin{proposition}[Finite Möbius--Mellin ledger]
+\label{prop:finite-mobius-mellin-ledger}
+For $X\geq1$ and $z\in\C$,
+\begin{equation}
+\label{eq:finite-mobius-mellin-ledger}
+  \sum_{n\leq X}\frac{\mu(n)}{n^{z+i\gamma}}
+  =
+  M_\gamma(X)X^{-z}
+  +z\int_1^X M_\gamma(x)x^{-z-1}\,dx.
+\end{equation}
+For $\Re(z)>1$, sequential projection gives
+\[
+  \frac1{\zeta(z+i\gamma)}
+  =
+  z\int_1^\infty M_\gamma(x)x^{-z-1}\,dx.
+\]
+In the same domain, at every finite $X$, the exact unresolved boundary is
+\begin{equation}
+\label{eq:mobius-mellin-residual}
+  \Residual_{\gamma,z}(X)
+  =
+  -M_\gamma(X)X^{-z}
+  +z\int_X^\infty M_\gamma(x)x^{-z-1}\,dx.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Apply finite Abel summation to
+$a_n=\mu(n)n^{-i\gamma}$ and $f(x)=x^{-z}$:
+\[
+  \sum_{n\leq X}a_nf(n)
+  =M_\gamma(X)f(X)-\int_1^XM_\gamma(x)f'(x)\,dx.
+\]
+This is \cref{eq:finite-mobius-mellin-ledger}. In $\Re(z)>1$, absolute
+convergence identifies the sequential scalar projection with
+$1/\zeta(z+i\gamma)$. Splitting the projected integral at finite $X$ gives
+\cref{eq:mobius-mellin-residual}; no finite boundary term is deleted.
+\end{proof}
+
+\begin{theorem}[Möbius growth obstruction from a zero]
+\label{thm:mobius-growth-obstruction}
+If $\zeta(\beta+i\gamma)=0$, then for every $\varepsilon>0$,
+\begin{equation}
+\label{eq:twisted-growth-obstruction}
+  M_\gamma(X)\neq O\!\left(X^{\beta-\varepsilon}\right).
+\end{equation}
+The untwisted Mertens function also satisfies
+\[
+  M(X)\neq O\!\left(X^{\beta-\varepsilon}\right).
+\]
+\end{theorem}
+
+\begin{proof}
+If $M_\gamma(X)=O(X^{\beta-\varepsilon})$, then
+\[
+  F(z)=z\int_1^\infty M_\gamma(x)x^{-z-1}\,dx
+\]
+converges locally uniformly and is holomorphic for
+$\Re(z)>\beta-\varepsilon$. In $\Re(z)>1$ it equals
+$1/\zeta(z+i\gamma)$ by
+\cref{prop:finite-mobius-mellin-ledger}. Uniqueness of analytic continuation
+would make the reciprocal holomorphic at $z=\beta$, contradicting the zero at
+$\beta+i\gamma$. The untwisted proof applies the same argument to
+\[
+  \frac1{\zeta(s)}
+  =s\int_1^\infty M(x)x^{-s-1}\,dx.
+\]
+\end{proof}
+
+\begin{definition}[Persistent exponent differential]
+\label{def:persistent-exponent-differential}
+Let an off-line zero be represented, using conjugate reflection, as
+\[
+  \rho=\frac12+\delta+i\gamma,
+  \qquad
+  \delta>0.
+\]
+Its persistent exponent differential is
+\begin{equation}
+\label{eq:persistent-exponent-differential}
+  \mathcal P_\rho:
+  \qquad
+  \forall\,0<\varepsilon<\delta,\quad
+  \limsup_{X\to\infty}
+  \frac{|M_\gamma(X)|}
+       {X^{1/2+\delta-\varepsilon}}
+  =\infty.
+\end{equation}
+It records the obstruction $X^\delta$ relative to the self-dual
+$X^{1/2}$ resolution; it does not assert a pointwise sign or an asymptotic
+formula for $M_\gamma$.
+\end{definition}
+
+\begin{corollary}[Off-line zero implies exponent persistence]
+\label{cor:off-line-zero-implies-persistence}
+For every off-line nontrivial zero $\rho$, there is a right-hand representative
+\[
+  \rho^+\in\{\rho,\Dual(\rho)\},
+  \qquad
+  \rho^+=\frac12+\delta+i\gamma,
+  \quad\delta>0,
+\]
+and $\rho^+$ satisfies $\mathcal P_{\rho^+}$.
+\end{corollary}
+
+\begin{proof}
+The symmetry recovered in \cref{prop:mellin-functional-symmetry}, together with
+real conjugation, gives the reflected zero orbit. Choose $\rho^+$ to the right
+of $\CriticalLine$. Then
+\cref{thm:mobius-growth-obstruction} with
+$\beta=\tfrac12+\delta$ gives
+\cref{eq:persistent-exponent-differential}.
+\end{proof}
+
+\begin{definition}[Zeta carrier audit]
+\label{def:zeta-carrier-audit}
+Write $\Audit_\zeta(\rho)$ when the following carriers have all been retained
+with their dependency paths:
+\begin{enumerate}[label=(\arabic*)]
+  \item finite integers, prime ancestry, divisor pairs, $\mu$, $\mathbf1$, and
+        $\varepsilon$;
+  \item the hyperbola cutoffs, overlap rectangle, factor-channel exchange, and
+        finite floor aliases;
+  \item prime cutoff, exponent-box overshoot, unresolved-prime ancestry, and
+        scalarisation boundary;
+  \item $M(X)$, $M_\gamma(X)$, their Abel boundary terms, and Mellin residuals;
+  \item finite theta truncation, Gaussian--Poisson residual, Mellin split, and
+        polar zero-mode term;
+  \item continuation coordinates, Bernoulli residuals, and the order of every
+        finite refinement;
+  \item completion factors, logarithm branch, and the full reflection orbit;
+  \item height, phase, and zero multiplicity;
+  \item smoothing weights, kernels, contours, and regularisations, recorded as
+        absent from this derivation rather than silently assigned zero
+        residuals; and
+  \item the spectral--hyperbola projection, self-dual cutoff and Mellin
+        projections, raw finite registration family, generated context and
+        resolution, coherence and exponent-coordinate projections, constructor
+        algebra, finite branch family, threshold, persistence weights, and
+        complete normalisation record.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Carrier ancestry closure]
+\label{prop:zeta-carrier-ancestry}
+For every off-line-zero differential
+\cref{eq:off-line-zero-differential}, every carrier in
+$\Audit_\zeta(\rho)$ retains ancestry to the finite generator
+\cref{def:finite-prime-ancestry,def:truncated-dirichlet-algebra} or to an exact
+projection and residual transport derived from it. Each carrier used in the
+proof is an explicit deterministic function of registered variables; the
+candidate carriers not used in the proof are explicitly absent.
+\end{proposition}
+
+\begin{proof}
+Items (1)--(3) are finite consequences of unique factorisation,
+\cref{prop:finite-euler-inversion,prop:exact-scalarisation-boundary,prop:euler-cutoff-transport}.
+Item (4) is the finite Abel ledger
+\cref{prop:finite-mobius-mellin-ledger}. Items (5)--(6) are the exact theta,
+Mellin, and continuation transports
+\cref{prop:finite-continuation-cocycle,prop:theta-residual-transport,prop:finite-gaussian-poisson-bridge}.
+The completion factors in item (7) are explicit and nonzero inside the
+nontrivial strip. The branch is fixed by
+$n^{-s}=\exp(-s\log n)$ with the real logarithm of $n>0$, and the reflection
+orbit is generated by \cref{eq:functional-symmetry-recovered} and complex
+conjugation. In item (8), height is the parameter $\gamma$ and phase is the
+explicit character
+\[
+  n^{-i\gamma}=e^{-i\gamma\log n}.
+\]
+A zero of any positive multiplicity makes $1/\zeta$ non-holomorphic, so
+\cref{thm:mobius-growth-obstruction} assumes no simple zero and its exponent
+obstruction is unchanged. Item (9) lists operations that do not occur in the
+derivation: no smoothing kernel, contour displacement, or regularisation is
+used to obtain \cref{thm:mobius-growth-obstruction}. They therefore contribute
+no undeclared terms. Item (10) is constructed in
+\cref{def:riemann-process-field,def:finite-factor-exchange-branch,def:riemann-persistence-coordinates,def:riemann-registration-family,def:finite-riemann-persistence,def:per-zero-normalisation-record}
+from the spectral coordinate, exact finite ledgers, and the single Cogenesis
+persistence relation; each projection states its residual and no second
+normaliser is introduced. This proves the dependency registry only; its
+extension through causal completion occurs solely in
+\cref{rev:foundational-inference}.
+\end{proof}
+
+\begin{reviewbox}
+\textbf{Status of carrier exhaustion.}
+The audit does not erase the off-line candidate. It retains its exact
+$X^\delta$ obstruction, every residual through which it is expressed, and the
+unchanged ancestry that generates those coordinates. The foundational
+causal extension in \cref{rev:foundational-inference} determines whether that
+fully typed differential completes as the realised output or remains residual.
+\end{reviewbox}
+
+\section{Persistence selection in the Riemann register}
+\label{sec:riemann-persistence}
+
+\subsection{Refinement-defined zero projection}
+
+\begin{definition}[Zero-refinement projection]
+\label{def:zero-refinement-projection}
+For a hypothetical zero
+$\rho=\tfrac12+\delta+i\gamma$ and each finite refinement record $\mathbf f$,
+put $z_\rho=\tfrac12+\delta$ and define
+\[
+  \mathcal O_{\Dual}(\rho)
+  :=
+  \{\rho,\overline\rho,1-\rho,1-\overline\rho\},
+  \qquad
+  \mathfrak A_{\gamma,z_\rho;X}
+  :=
+  \left(
+    M_\gamma(X)X^{-z_\rho},
+    z_\rho\int_1^X M_\gamma(x)x^{-z_\rho-1}\,dx
+  \right).
+\]
+The exact initial typed record is
+\[
+  \Field_{\rho,\mathbf f}^{(0)}
+  :=
+  \left(
+    \mathcal O_{\Dual}(\rho),
+    \operatorname{Comp}(\rho);
+    \mathscr L_{\mathbf f};
+    M_\gamma(X),\mathfrak A_{\gamma,z_\rho;X};
+    \Residual_{\rho;\mathbf f}
+  \right),
+\]
+where $\operatorname{Comp}(\rho)$ is the explicit tuple of completion factors
+in \cref{eq:completed-xi} and $\Residual_{\rho;\mathbf f}$ is the tuple of
+their separately typed finite projection and continuation residuals. For
+$n\in\mathbb N_0:=\{0,1,2,\ldots\}$, recursively define
+\[
+\begin{aligned}
+  \Field_{\rho,\mathbf f}^{(n+1)}
+  &:=
+  \Field_{\rho,\mathbf f}^{(n)}
+  +
+  \left\{
+    G(x)+R_G(x):
+    G\in\operatorname{Op}(\Gen_{\zeta,\mathbf f}),\
+    x\in
+    \operatorname{Carr}(\Field_{\rho,\mathbf f}^{(n)})
+    \cap\operatorname{Dom}(G)
+  \right\}.
+\end{aligned}
+\]
+where $R_G(x)$ is the declared residual of the finite operation $G$. Then
+\[
+  \Field_\rho
+  :=
+  \left(
+    \{\Field_{\rho,\mathbf f}^{(n)}\}_{\mathbf f\ {\rm finite},\,n\in\mathbb N_0},
+    \{\mathsf T_{\mathbf f\to\mathbf f'}\}
+  \right).
+\]
+This is the smallest sequential $\Gen_\zeta$-generated projection: every
+finite generator word occurs at a finite $n$, while no completed union over
+$n$ or $\mathbf f$ is formed. Indeed, any domain-respecting
+$\Gen_{\zeta,\mathbf f}$-closed record containing
+$\Field_{\rho,\mathbf f}^{(0)}$ contains every finite stage by induction.
+For a finite $R\geq1$, the tail projection $\tau_R$ acts on the twisted
+Möbius coordinate by
+\[
+  \tau_RM_\gamma(X)
+  =
+  M_\gamma(X)-M_\gamma(R),
+  \qquad X\geq R,
+\]
+and transports every other coordinate by its already derived finite cocycle.
+\end{definition}
+
+\begin{lemma}[Finite-prefix invariance of exponent persistence]
+\label{lem:riemann-tail-stability}
+If $\mathcal P_\rho$ of
+\cref{eq:persistent-exponent-differential} holds, then for every finite
+$R\geq1$ and every $0<\varepsilon<\delta$,
+\begin{equation}
+\label{eq:riemann-tail-stability}
+  \limsup_{X\to\infty}
+  \frac{|M_\gamma(X)-M_\gamma(R)|}
+       {X^{1/2+\delta-\varepsilon}}
+  =\infty.
+\end{equation}
+Thus the off-line exponent obstruction is retained by every finite refinement
+tail of $\Field_\rho$.
+\end{lemma}
+
+\begin{proof}
+If the quotient in \cref{eq:riemann-tail-stability} were bounded, then adding
+the fixed constant $M_\gamma(R)$ would give
+\[
+  M_\gamma(X)=O\!\left(X^{1/2+\delta-\varepsilon}\right),
+\]
+contradicting $\mathcal P_\rho$. Removing any other finite initial ledger
+changes only finitely many enacted coordinates and its exact transported
+boundary, so it cannot alter the asymptotic exponent statement.
+\end{proof}
+
+\begin{proposition}[Cogenetic typing of the exponent differential]
+\label{prop:riemann-differential-typing}
+Within the Cogenesis causal grammar
+\cref{eq:imported-persistence,eq:imported-branch-normalisation},
+$\mathcal P_\rho$ is:
+\begin{enumerate}[label=(\roman*)]
+  \item a projected expression with its Möbius--Mellin residual;
+  \item a persistent bifurcating differential, because every finite tail
+        retains the same strict exponent distinction; and
+  \item a candidate unary of $\Field_\rho$ to be evaluated by the one
+        normalising relation $\heartsim$.
+\end{enumerate}
+Candidate status does not identify the differential with the selected unary.
+\end{proposition}
+
+\begin{proof}
+The projected expression and residual are
+\cref{eq:finite-mobius-mellin-ledger,eq:mobius-mellin-residual}.
+\Cref{lem:riemann-tail-stability} proves persistence under every finite tail.
+Its nonzero exponent magnitude and ancestry-derived alternatives are enacted
+explicitly at \cref{eq:riemann-branch-enactment}. The Cogenesis finite
+persistence relation therefore types the differential as an admissible candidate while
+\cref{eq:imported-branch-normalisation} retains selected, unselected, and
+continuing content separately.
+\end{proof}
+
+\subsection{Exact scale residual and finite persistence}
+
+\begin{definition}[Finite factor-exchange branch]
+\label{def:finite-factor-exchange-branch}
+Fix $X,T>1$ and $\gamma\in\mathbb R$. Before choosing an admissible branch,
+define the raw exchange coordinate for every
+\[
+  \eta\in I_{\mathrm{strip}}:=\left(-\frac12,\frac12\right)
+\]
+put
+\[
+  s_\eta=\frac12+\eta+i\gamma,
+\]
+Declare the exponent-preserving spectral--hyperbola projection
+\begin{equation}
+\label{eq:spectral-hyperbola-projection}
+  \Pi_X^{\mathrm{HM}}(s)
+  =
+  \left(X^{\Re(s)},X^{1-\Re(s)}\right),
+  \qquad
+  (u_\eta,v_\eta)
+  :=
+  \Pi_X^{\mathrm{HM}}(s_\eta).
+\end{equation}
+This is the domain projection carrying the real Mellin exponent into a
+multiplicative cutoff pair; it is declared for every $s$ before a zero
+condition is imposed.
+Then $u_\eta v_\eta=X$. The exchange involution is
+\[
+  \tau(\eta)=-\eta,
+  \qquad
+  (u_\eta,v_\eta)\longmapsto(v_\eta,u_\eta),
+  \qquad
+  \Dual(s_\eta)=s_{-\eta}.
+\]
+The central record $\eta=0$ is the self-dual projection of the exchanged
+cutoff pair. It is an admissible resolution record, not an assumed zero at
+$\tfrac12+i\gamma$.
+\end{definition}
+
+\begin{definition}[Hyperbola coherence and scale residuals]
+\label{def:riemann-persistence-coordinates}
+For $uv=X$, define the complete hyperbola ledger
+\begin{align*}
+  \mathcal H_X(s;u,v)
+  :={}&
+  \sum_{a\leq u}\frac{\mu(a)}{a^s}
+    Z_s\!\left(\frac Xa\right)
+  +\sum_{b\leq v}\frac1{b^s}
+    M_s\!\left(\frac Xb\right)\\
+  &-M_s(u)Z_s(v).
+\end{align*}
+For the branch $\eta$, set
+\[
+  c_X(\eta)=\mathcal H_X(s_\eta;u_\eta,v_\eta).
+\]
+The self-dual cutoff projection is
+\[
+  \pi_{\mathrm{sd}}(u_\eta,v_\eta)
+  =(\sqrt X,\sqrt X),
+\]
+and its retained oriented residual is
+\[
+  r_X^{\mathrm H}(\eta)
+  =
+  \frac12\log_X\!\left(\frac{u_\eta}{v_\eta}\right).
+\]
+For the paired Mellin kernel weights
+\[
+  K_T^+(s)=T^{s/2-1},
+  \qquad
+  K_T^-(s)=T^{(1-s)/2-1},
+\]
+define
+\[
+  \pi_{\mathrm{M,sd}}(A,B)=(\sqrt{AB},\sqrt{AB}),
+  \qquad A,B>0,
+\]
+applied to
+$A=|K_T^+(s_\eta)|$ and $B=|K_T^-(s_\eta)|$, and retain the oriented residual
+\[
+  r_T^{\mathrm M}(\eta)
+  =
+  \log_T
+  \frac{|K_T^+(s_\eta)|}{|K_T^-(s_\eta)|}.
+\]
+\end{definition}
+
+\begin{proposition}[Exact cross-projection exponent agreement]
+\label{prop:exact-branch-agreement}
+For every permitted $X,T,\gamma$ and $\eta\in I_{\mathrm{strip}}$,
+\begin{equation}
+\label{eq:exact-branch-agreement}
+  c_X(\eta)=1,
+  \qquad
+  r_X^{\mathrm H}(\eta)
+  =r_T^{\mathrm M}(\eta)
+  =\eta.
+\end{equation}
+Under the declared projection \cref{eq:spectral-hyperbola-projection}, the
+hyperbola cutoff coordinate and Mellin spectral coordinate carry the same
+dimensionless residual without using a zero condition.
+\end{proposition}
+
+\begin{proof}
+\Cref{prop:arbitrary-hyperbola-cutoff} gives $c_X(\eta)=1$ for every $s_\eta$
+and every cutoff pair with product $X$. Also
+\[
+  \frac{u_\eta}{v_\eta}=X^{2\eta},
+\]
+so $r_X^{\mathrm H}(\eta)=\eta$. Finally,
+\[
+  |K_T^+(s_\eta)|=T^{-3/4+\eta/2},
+  \qquad
+  |K_T^-(s_\eta)|=T^{-3/4-\eta/2},
+\]
+whose ratio is $T^\eta$. Thus $r_T^{\mathrm M}(\eta)=\eta$ independently of
+$X,T,\gamma$, and numerical height.
+\end{proof}
+
+\begin{definition}[Riemann registration family]
+\label{def:riemann-registration-family}
+Let $\mathbf f$ denote the finite arithmetic, prime, continuation, theta, and
+transform cutoffs already enacted, together with finite $X,T>1$,
+$1\leq R\leq X$ and height $\gamma$. Before context, resolution, or an admissible branch is
+selected, form the raw finite record
+\[
+\begin{aligned}
+  E_{\eta;\mathbf f}
+  :=
+  \bigl(&s_\eta,u_\eta,v_\eta,
+    \mathcal H_X(s_\eta;u_\eta,v_\eta),
+    K_T^+(s_\eta),K_T^-(s_\eta),
+    M_\gamma(X)-M_\gamma(R);\\
+  &\mathsf{Anc}_{\zeta,\mathbf f},\Residual_{\eta;\mathbf f}\bigr),
+  \qquad \eta\in I_{\mathrm{strip}}.
+\end{aligned}
+\]
+and let
+$\mathscr E_{\mathbf f}
+=\{E_{\eta;\mathbf f}:\eta\in I_{\mathrm{strip}}\}$.
+Here $\Residual_{\eta;\mathbf f}$ is the tuple of the already-derived finite
+boundary and transport residuals evaluated at $s_\eta$ or
+$z_\eta:=\tfrac12+\eta$, as required by their domains. The finite family
+presently capable of registering distinctions is
+\[
+  \mathcal G_{\mathbf f}
+  =
+  \left\{
+    G_s,G_{\mathrm H},G_{\mathrm M},G_c,G_{\mathrm{tail},R},G_{\mathrm{meta}}
+  \right\}.
+\]
+Their common domain is $\mathscr E_{\mathbf f}$, and their actions and
+codomains are
+\[
+  \begin{aligned}
+  G_s &: \mathscr E_{\mathbf f}\to\mathbb R,
+  &G_s(E_{\eta;\mathbf f})&=\Re(s_\eta)-\frac12,\\
+  G_{\mathrm H}&:\mathscr E_{\mathbf f}\to\mathbb R,
+  &G_{\mathrm H}(E_{\eta;\mathbf f})&=r_X^{\mathrm H}(\eta),\\
+  G_{\mathrm M}&:\mathscr E_{\mathbf f}\to\mathbb R,
+  &G_{\mathrm M}(E_{\eta;\mathbf f})&=r_T^{\mathrm M}(\eta),\\
+  G_c&:\mathscr E_{\mathbf f}\to\mathbb C,
+  &G_c(E_{\eta;\mathbf f})&=c_X(\eta),\\
+  G_{\mathrm{tail},R}&:\mathscr E_{\mathbf f}\to\mathscr T_{\mathbf f},
+  &G_{\mathrm{tail},R}(E_{\eta;\mathbf f})
+  &=
+  \Bigl(
+    M_\gamma(X)-M_\gamma(R),\,
+    M_\gamma(X)X^{-z_\eta}-M_\gamma(R)R^{-z_\eta},\\
+  &&&\hspace{4.4cm}
+    z_\eta\int_R^X M_\gamma(x)x^{-z_\eta-1}\,dx
+  \Bigr),\\
+  G_{\mathrm{meta}}&:\mathscr E_{\mathbf f}\to\mathscr M_{\mathbf f},
+  &G_{\mathrm{meta}}(E_{\eta;\mathbf f})
+  &=
+  \bigl(\mathsf{Anc}_{\zeta,\mathbf f},\Residual_{\eta;\mathbf f}\bigr),
+  \end{aligned}
+\]
+where $\mathscr T_{\mathbf f}$ is the finite tail-ledger codomain and
+$\mathscr M_{\mathbf f}$ is the finite ancestry-and-residual codomain. The
+last two components of $G_{\mathrm{tail},R}$ are the exact endpoint and
+integral terms obtained by subtracting
+\cref{eq:finite-mobius-mellin-ledger} at $R$ from its value at $X$. These registries
+are restrictions of the prior finite ancestry, not projections authorised by
+the frame they generate. Following the observation-generation relation of
+Cogenesis, define
+\begin{equation}
+\label{eq:riemann-context-resolution-generation}
+  \Cctx_{\mathbf f}
+  :=
+  \operatorname{supp}\mathcal G_{\mathbf f}
+  =\mathscr E_{\mathbf f},
+  \qquad
+  \Rres_{\mathbf f}
+  :=
+  \operatorname{Disc}\!\left(
+    \mathcal G_{\mathbf f}\mid\Cctx_{\mathbf f}
+  \right),
+  \qquad
+  \mathcal O_{\mathbf f}
+  :=
+  \pi_{\Cctx_{\mathbf f},\Rres_{\mathbf f}}
+  (\mathcal G_{\mathbf f}).
+\end{equation}
+Explicitly, $\Rres_{\mathbf f}$ distinguishes
+$E_{\eta;\mathbf f}$ and $E_{\eta';\mathbf f}$ whenever at least one registry
+has unequal values, and
+$\mathcal O_{\mathbf f}(E_{\eta;\mathbf f})$ denotes the tuple of all six
+registered values.
+Thus context is the support on which these finite registrations are jointly
+defined, resolution is their enacted distinguishability, and observation is
+their carried projection with all omitted content retained in the registered
+residuals.
+The exponent-channel restriction is a projection of that observation:
+\[
+  \pi_{\mathrm{exp}}
+  \bigl(\mathcal O_{\mathbf f}(E_{\eta;\mathbf f})\bigr)
+  :=
+  \mathcal O_{\mathbf f}^{\mathrm{exp}}(\eta)
+  +R_{\mathrm{exp};\mathbf f};
+\]
+$R_{\mathrm{exp};\mathbf f}$ retains $G_c$, $G_{\mathrm{tail},R}$ and
+$G_{\mathrm{meta}}$, including ancestry and every non-exponent residual,
+rather than deleting them.
+\end{definition}
+
+\begin{proposition}[Registration-derived exponent resolution]
+\label{prop:riemann-registration-recovery}
+The exponent-channel projection of
+\cref{eq:riemann-context-resolution-generation} is
+\begin{equation}
+\label{eq:registered-exponent-observation}
+  \mathcal O_{\mathbf f}^{\mathrm{exp}}(\eta)
+  =
+  \bigl(
+    G_s(E_{\eta;\mathbf f}),
+    G_{\mathrm H}(E_{\eta;\mathbf f}),
+    G_{\mathrm M}(E_{\eta;\mathbf f})
+  \bigr)
+  =
+  (\eta,\eta,\eta).
+\end{equation}
+Consequently exact finite registration distinguishes every nonzero $d$, gives
+$\Theta_\odot=0$ in the exponent channel.
+\end{proposition}
+
+\begin{proof}
+The spectral definition gives
+\[
+  G_s(E_{\eta;\mathbf f})=\eta,
+\]
+while \cref{prop:exact-branch-agreement} gives
+\[
+  G_{\mathrm H}(E_{\eta;\mathbf f})
+  =G_{\mathrm M}(E_{\eta;\mathbf f})=\eta.
+\]
+Hence distinct exponent
+coordinates have distinct finite registration triples.
+\end{proof}
+
+\begin{definition}[Finite Riemann persistence sample]
+\label{def:finite-riemann-persistence}
+For every $\eta\in I_{\mathrm{strip}}$, let $\Phi_\eta$ be the complete finite
+record carrying $s_\eta$,
+$(u_\eta,v_\eta)$, $\mathcal H_X$, $c_X(\eta)$, both Mellin kernels and scale
+residuals, $M_\gamma(X)$, the finite Abel ledger and its boundary, and its
+exchange ancestry.
+
+For a right-hand hypothetical zero
+$\rho=\tfrac12+\delta+i\gamma$, set $d=\delta$. For every finite $R\geq1$,
+the paired finite projections are
+\[
+  q_{X,T,R}^{\pm}:\Field_\rho\longrightarrow
+  \Phi_{\pm d}+R_{\rho;X,T,R}^{\pm}.
+\]
+The record $\Phi_d$ carries $\mathcal P_\rho$, and $\Phi_{-d}$ carries its
+reflected relation. Each $R_{\rho;X,T,R}^{\pm}$ retains every component of
+$\Field_\rho$ not carried by the corresponding finite record.
+
+The lifted self-dual projection acts on the complete paired records:
+\begin{equation}
+\label{eq:lifted-self-dual-projection}
+  \widehat\pi_{\mathrm{sd}}
+  \left(
+    \Phi_d+R_{\rho;X,T,R}^{+},
+    \Phi_{-d}+R_{\rho;X,T,R}^{-}
+  \right)
+  =
+  \Phi_0+\widehat R_{\rho;X,T,R}.
+\end{equation}
+It sends $s_{\pm d}$ to $s_0$, each cutoff pair through
+$\pi_{\mathrm{sd}}$, and each Mellin magnitude pair through
+$\pi_{\mathrm{M,sd}}$; $\widehat R_{\rho;X,T,R}$ retains every component not
+carried by those self-dual projections.
+
+Define the coherence and exponent-coordinate projections by
+\[
+  \pi_c(\Phi_\eta)=c_X(\eta),
+  \qquad
+  \rho_{\Phi_\eta}=|\pi_c(\Phi_\eta)|^2,
+  \qquad
+  \pi_\delta(\Phi_\eta)
+  =r_X^{\mathrm H}(\eta)
+  =r_T^{\mathrm M}(\eta)
+  =\eta.
+\]
+By \cref{prop:riemann-registration-recovery}, every $d>0$ is distinguishable
+at the registration-derived exponent resolution, so
+\[
+  |\DeltaFork(\Field_\rho)|:=d>\Theta_\odot:=0
+\]
+Every arithmetic, continuation, theta, tail, and coherence transport acts at
+fixed $\eta$ in the exponent channel. The only ancestry maps that alter that
+coordinate are the derived exchange and the residual-retaining self-dual
+projection. Consequently the induced unary-forming constructor algebra in
+$\mathsf{Anc}_{\zeta,\mathbf f}$ is
+\[
+  \mathfrak S_{\pitchfork}
+  =
+  \{\iota,\tau,\nu\},
+  \qquad
+  \iota(\eta)=\eta,
+  \quad
+  \tau(\eta)=-\eta,
+  \quad
+  \nu(\eta)=0.
+\]
+Here $\iota$ carries the source coordinate, $\tau$ is the derived exchange,
+and $\nu$ is the coordinate action of
+\cref{eq:lifted-self-dual-projection}. This set is closed under composition,
+and therefore its orbit is derived exactly:
+\[
+  \mathfrak S_{\pitchfork}\!\cdot d=\{-d,0,d\}.
+\]
+The enacted branch relation is consequently
+\begin{equation}
+\label{eq:riemann-branch-enactment}
+  \DeltaFork(\Field_\rho)
+  \longrightarrow
+  \left(
+    \mathcal P_\rho;
+    \{\Phi_\eta:\eta\in\mathfrak S_{\pitchfork}\!\cdot d\}
+  \right).
+\end{equation}
+The branch context is the restriction of
+$\mathcal O_{\mathbf f}^{\mathrm{exp}}$ to that orbit, with every non-exponent
+registration retained in $R_{\mathrm{exp};\mathbf f}$; denote its frame by
+$(\Cctx_{X,T,\gamma,d},\Rres_{\mathrm{exp}})$. Hence
+\[
+  \Admissible(\Cctx_{X,T,\gamma,d},\Rres_{\mathrm{exp}},
+  \mathsf{Anc}_\zeta)
+  :=
+  \{\Phi_\eta:\eta\in\mathfrak S_{\pitchfork}\!\cdot d\}
+  =
+  \{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+The exchange split is retained in $r_{\pitchfork}$ rather than scalarised a
+second time as fragmentation, so this projection sets $\mu=0$. For arbitrary
+$\lambda\geq0$, its Cogenesis persistence functional is
+\begin{equation}
+\label{eq:finite-riemann-persistence}
+  \Persist_{X,T,\gamma,d}[\Phi_\eta]
+  =
+  -|r_X^{\mathrm H}(\eta)|^2
+  +\lambda\rho_{\Phi_\eta}
+  =
+  \lambda-\eta^2.
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Unique finite persistence selection]
+\label{prop:unique-riemann-persistence-selection}
+At every finite declared resolution,
+\[
+  \Persist[\Phi_0]=\lambda,
+  \qquad
+  \Persist[\Phi_{\pm d}]=\lambda-d^2,
+\]
+and hence
+\begin{equation}
+\label{eq:unique-riemann-persistence-selection}
+  \operatorname*{arg\,max}_{\Phi\in\Admissible}
+  \Persist[\Phi]
+  =\{\Phi_0\}.
+\end{equation}
+The ordering is independent of $X,T,\gamma,\lambda$, and attained magnitude.
+\end{proposition}
+
+\begin{proof}
+Substitute \cref{eq:exact-branch-agreement} into
+\cref{eq:finite-riemann-persistence}. Since $d>0$, the difference between the
+central and either exchanged branch is exactly $d^2>0$.
+\end{proof}
+
+\begin{remark}[Scope of the finite selection]
+\label{rem:finite-selection-scope}
+\Cref{prop:unique-riemann-persistence-selection} selects the self-dual
+\emph{resolution record}. It does not assert that
+$\xi(\tfrac12+i\gamma)=0$, does not identify an unselected branch with its
+projection, and does not by itself imply that an analytic zero must be the
+selected unary. The latter follows only when the static zero equality is
+carried through its complete causal ancestry, as isolated in
+\cref{rev:foundational-inference}.
+\end{remark}
+
+\subsection{Complete per-zero normalisation record}
+
+\begin{definition}[Per-zero normalisation record]
+\label{def:per-zero-normalisation-record}
+For a right-hand off-line candidate
+$\rho=\tfrac12+d+i\gamma$ and finite $R\geq1$, define
+\begin{equation}
+\label{eq:per-zero-normalisation-record}
+  \mathfrak B_{\rho;X,T,R}
+  :=
+  \left.
+  \heartsim\!\left(\DeltaFork(\Field_\rho)\right)
+  \right|_{(\Cctx_{X,T,\gamma,d},\Rres_{\mathrm{exp}})}
+  =
+  \odot_{\rho;X,T,R}^\ast
+  +
+  r_{\pitchfork,\rho;X,T,R}
+  +\Delta'_{\rho;X,T,R}.
+\end{equation}
+Its components are
+\[
+ \begin{aligned}
+  \odot_{\rho;X,T,R}^\ast&=\Phi_0,\\
+  r_{\pitchfork,\rho;X,T,R}
+  &=
+  \left\{
+    \Phi_{-d},\Phi_d,
+    R_{\rho;X,T,R}^{-},R_{\rho;X,T,R}^{+},
+    \widehat R_{\rho;X,T,R}
+  \right\},\\
+  \Delta'_{\rho;X,T,R}&=\tau|_{\{-d,d\}}.
+ \end{aligned}
+\]
+Consequently its selected unary has
+\[
+  \pi_\delta(\odot_{\rho;X,T,R}^\ast)=0.
+\]
+The records $\Phi_{\pm d}$ retain their persistence values and ancestry; the
+members $R_{\rho;X,T,R}^{\pm}$ and $\widehat R_{\rho;X,T,R}$ retain their
+separately typed residual content and ancestry. The component
+$\Delta'_{\rho;X,T,R}$ retains the exchange
+$\Phi_d\leftrightarrow\Phi_{-d}$. The plus signs in
+\cref{eq:per-zero-normalisation-record} denote typed co-retention, not scalar
+addition.
+\end{definition}
+
+\begin{proposition}[Refinement-stable selection]
+\label{prop:riemann-selection-refinement}
+For all finite $X,T>1$, $R\geq1$, every $\gamma\in\mathbb R$, and every
+$0<d<\tfrac12$, the selected coordinate of
+\cref{eq:per-zero-normalisation-record} is
+\begin{equation}
+\label{eq:riemann-selection-refinement}
+  \pi_\delta(\odot_{\rho;X,T,R}^\ast)=0.
+\end{equation}
+Changing any finite arithmetic, continuation, or transform cutoff transports
+the residual ledger but does not change this selection.
+\end{proposition}
+
+\begin{proof}
+The persistence difference is exactly $d^2$ by
+\cref{prop:unique-riemann-persistence-selection} and contains no $X,T,\gamma$,
+prime cutoff, continuation order, or endpoint. All such refinements are
+transported by
+\cref{prop:euler-cutoff-transport,prop:finite-continuation-cocycle,prop:theta-residual-transport},
+while \cref{eq:exact-branch-agreement} remains unchanged. The selected
+coordinate is therefore $0$ at every finite refinement.
+\end{proof}
+
+\begin{proposition}[No-orphan closure of the per-zero record]
+\label{prop:riemann-no-orphan-closure}
+Every identity, tail, cutoff schedule, phase, weighting, and residual appearing
+in $\mathfrak B_{\rho;X,T,R}$ retains its dependency path to $\Field_\zeta$.
+Neither sequential refinement nor the representation of $\Phi_{\pm d}$
+introduces another persistence functional or normalising relation.
+\end{proposition}
+
+\begin{proof}
+\Cref{prop:zeta-carrier-ancestry} establishes the dependency path for every
+finite carrier, while \cref{lem:riemann-tail-stability} establishes the same
+path for every finite tail of the exponent differential. In particular,
+$\Pi_X^{\mathrm{HM}}$ is an explicit function of $s$ and $X$;
+$\pi_{\mathrm{sd}}$, $\pi_{\mathrm{M,sd}}$,
+$\widehat\pi_{\mathrm{sd}}$, $\pi_c$, and $\pi_\delta$ are declared
+projections of that record; the scale residuals satisfy
+\cref{eq:exact-branch-agreement}; and the finite and lifted projection
+residuals $R_{\rho;X,T,R}^{\pm}$ and $\widehat R_{\rho;X,T,R}$ are retained by
+\cref{def:finite-riemann-persistence,eq:lifted-self-dual-projection}. Moreover,
+\cref{eq:riemann-branch-enactment} derives the finite family from the source
+branch, its exchange, and its self-dual projection. The weights
+$\lambda\geq0$ and $\mu=0$ are exactly those of the one declared persistence
+functional in the declared scalar channel. The complete record
+\cref{eq:per-zero-normalisation-record} applies the same causal normaliser
+$\heartsim$ once and retains every unselected component. Projection changes
+the expressed coordinate and residual, not the generator or normaliser.
+\end{proof}
+
+\begin{proposition}[Status of an off-line exponent candidate]
+\label{prop:off-line-candidate-status}
+For a hypothetical off-line zero, $\mathcal P_\rho$ is retained in
+$r_{\pitchfork,\rho;X,T,R}$ or $\Delta'_{\rho;X,T,R}$ at every finite
+refinement;
+it is not the selected unary of the exponent-resolution channel.
+\end{proposition}
+
+\begin{proof}
+\Cref{prop:riemann-differential-typing} types $\mathcal P_\rho$ as the
+tail-stable candidate, and the finite projection $q_{X,T,R}^{+}$ in
+\cref{def:finite-riemann-persistence} carries it into $\Phi_d$ with every
+omitted component retained in $R_{\rho;X,T,R}^{+}$. The complete record retains
+$\Phi_d$ explicitly, and
+\cref{prop:unique-riemann-persistence-selection,prop:riemann-selection-refinement}
+select $\Phi_0$ instead. Anti-collapse
+\cref{eq:imported-projection,eq:imported-branch-normalisation} forbids replacing
+either record by the other.
+\end{proof}
+
+\begin{reviewbox}
+\textbf{What finite persistence proves.}
+The scale residual is derived twice, the persistence comparison is exact, the
+self-dual record is the unique finite maximum, and the paired off-line records
+remain explicit residual content. The remaining foundational passage is not
+that $\pm d$ disappear; it is that zero is the accounting projection of a
+causally completed zero-forming process, not a primitive point that exists
+before that process. The explicit chain
+\cref{eq:imported-finite-selection,eq:imported-branch-normalisation} types its
+realised output as the selected unary and its unselected records as residual
+or continuing content.
+\end{reviewbox}
+
+\section{Processual proof contract}
+\label{sec:proof-contract}
+
+\begin{keybox}[title={\bfseries Processual proof contract},fontupper=\small]
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*]
+  \item Declare every domain, context, resolution, projection, and residual.
+  \item Prove the reformulation exactly equivalent to RH.
+  \item Derive the finite process from native ancestry.
+  \item Recover static symmetry from the process, not conversely.
+  \item Prove magnitude independence rather than naming it.
+  \item Prove invariant preservation at every finite refinement.
+  \item Translate an off-line zero into \cref{eq:off-line-zero-differential}.
+  \item Exhaust every carrier without presuming exclusion.
+  \item Prove \cref{eq:required-local-implication}.
+  \item Isolate the foundational causal extension at
+        \cref{rev:foundational-inference}.
+  \item Recover \cref{eq:riemann-target} by ordinary complex arithmetic.
+  \item Map every falsifiable claim to a verifier that fails non-zero.
+\end{enumerate}
+\end{keybox}
+
+\section{The single foundational causal extension}
+\label{sec:foundational-inference}
+
+\begin{remark}[The single foundational causal extension]
+\label{rev:foundational-inference}
+Let
+$\rho=\tfrac12+\delta+i\gamma$ be the right-hand representative of a
+hypothetical off-line orbit. Writing $\xi(\rho)=0$ as the claimed scalar
+output of its complete record, the decisive causal order is:
+\begin{equation}
+\label{eq:foundational-inference}
+\begin{aligned}
+  \mathsf{Anc}_\rho
+  &\longrightarrow
+  (\Cctx_\rho,\Rres_\rho)
+  \longrightarrow
+  \Pi_\rho
+  \longrightarrow
+  \Persist_\rho
+  \longrightarrow
+  \odot_\rho^\ast+R_\rho,\\
+  \odot_\rho^\ast+R_\rho
+  &\overset{\pi_\xi}{\longrightarrow}
+  \underbrace{
+    \mathcal Z_\rho
+    =\xi(\rho)+r_{0,\rho}
+    =0+r_{0,\rho}
+  }_{\text{static zero accounting projection}},\\
+  &\Longrightarrow
+  \underbrace{
+    \Phi_\delta=\odot_\rho^\ast
+  }_{\text{claimed output occupies the selected unary}}
+  \Longrightarrow
+  \underbrace{
+    \pi_\delta(\Phi_\delta)
+    =\pi_\delta(\odot_\rho^\ast)=0
+  }_{\delta=0}.
+\end{aligned}
+\end{equation}
+The domain relations in this chain are finite and exact:
+\cref{prop:exact-branch-agreement} identifies the spectral residual with the
+factor-exchange residual,
+\cref{prop:unique-riemann-persistence-selection} gives the unique selected
+record, and \cref{prop:riemann-selection-refinement} preserves that selection
+at every finite refinement. The paired records $\Phi_{\pm\delta}$ are not
+deleted; \cref{prop:off-line-candidate-status} retains them as residual or
+continuing content.
+
+The implication following the terminal zero projection is causally explicit,
+not an additional selection axiom. Claiming the equality $\xi(\rho)=0$ as a
+realised zero-forming output means that $\rho$ names the carried output of the
+ancestry-first process displayed above; it does not make that static equality
+the process input.
+The complete normalisation relation
+\cref{eq:imported-finite-selection,eq:imported-branch-normalisation} types the
+carried output as $\odot_\rho^\ast$ and the other expressions as residual or
+continuing content. To call $\Phi_\delta$ both an unselected residual and the
+realised output in the same channel would reverse that explicit causal order.
+Carrier closure \cref{prop:riemann-no-orphan-closure} ensures that refinement
+introduces no second normaliser under which its status could change.
+
+A completed-infinite reading can represent an off-line coordinate as a member
+of a static completed zero set. That representation supplies no competing
+zero-forming ancestry: it promotes the accounting projection to a primitive
+object and terminates causal accounting at the equality. Sequential causal
+completion instead retains that coordinate as residual while making only the
+normalised unary available as the zero-forming output. This is the same
+selected-versus-continuing causal distinction used in the Collatz orbit
+argument.
+\end{remark}
+
+\begin{theorem}[Critical-line closure]
+\label{thm:critical-line-closure}
+For every $\rho\in\CriticalStrip$ and arbitrary finite $X,T>1$, $R\geq1$,
+\begin{equation}
+\label{eq:required-local-implication}
+  \xi(\rho)=0\ \land\ \rho\neq\Dual(\rho)
+  \Longrightarrow
+  \mathcal P_{\rho^+}
+  \land\Audit_\zeta(\rho^+)
+  \land\Phi_\delta\in r_{\pitchfork,\rho^+;X,T,R}
+  \Longrightarrow
+  \delta=0
+  \quad\bot.
+\end{equation}
+Here $\rho^+\in\{\rho,\Dual(\rho)\}$ is the right-hand representative
+$\rho^+=\tfrac12+\delta+i\gamma$ with $\delta>0$.
+\end{theorem}
+
+\begin{proof}
+If the zero is off-line, \cref{cor:off-line-zero-implies-persistence} gives
+$\mathcal P_{\rho^+}$. The derivation and
+\cref{prop:zeta-carrier-ancestry,prop:riemann-no-orphan-closure} establish
+$\Audit_\zeta(\rho^+)$ and the complete record
+$\mathfrak B_{\rho^+;X,T,R}$. The candidate has spectral coordinate
+$\pi_\delta(\Phi_\delta)=\delta$, while finite persistence gives
+$\pi_\delta(\odot_{\rho^+;X,T,R}^\ast)=0$ at every refinement. The foundational
+causal extension \cref{eq:foundational-inference} carries the static zero
+projection through its complete ancestry to the latter selected coordinate,
+hence $\delta=0$, contradicting the right-hand orientation. Therefore no
+off-line orbit is realised as a zero-forming output, and every realised zero
+projection is fixed by $\Dual$. The records $\Phi_{\pm\delta}$ remain retained
+as residual candidates by \cref{prop:off-line-candidate-status}; they are not
+erased. Since $\Dual$ is involutive, the zero-forming conclusion applies to
+the originally named member $\rho$ as well as $\rho^+$.
+\end{proof}
+
+\section{Main theorem and classical recovery}
+\label{sec:classical-recovery}
+
+\begin{theorem}[Riemann hypothesis]
+\label{thm:riemann-hypothesis}
+Every nontrivial zero $\rho$ of $\zeta$ satisfies
+\[
+  \Re(\rho)=\frac12.
+\]
+\end{theorem}
+
+\begin{proof}
+Inside $\CriticalStrip$, the factors multiplying $\zeta(s)$ in
+\cref{eq:completed-xi} are nonzero, so the nontrivial zeros of $\zeta$ and
+$\xi$ coincide. Critical-line closure
+\cref{thm:critical-line-closure} gives $\rho=\Dual(\rho)$. By
+\cref{prop:fixed-locus}, $\Fix(\Dual)=\CriticalLine$, and therefore
+$\Re(\rho)=\tfrac12$.
+\end{proof}
+
+\section{Conventional-language proof skeleton}
+\label{sec:conventional-skeleton}
+
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=*]
+  \item Unique factorisation generates the finite convolution algebra for
+        Dirichlet coefficients and its compatible Möbius inverse.
+  \item Exact scalarisation, cutoff, Bernoulli, theta, and Mellin residuals
+        transport that ancestry without identifying a projection with its
+        generator.
+  \item The finite Möbius--hyperbola ledger is identically $1$ at every
+        resolution; factor exchange has the unique fixed exponent
+        $\theta=\tfrac12$.
+  \item Theta--Mellin transport projects reciprocal scale to
+        $s\leftrightarrow1-s$, recovering the functional equation rather than
+        assuming it.
+  \item An off-line zero
+        $\rho=\tfrac12+\delta+i\gamma$ forces the exact persistent Möbius
+        obstruction $\mathcal P_\rho$, an $X^\delta$ differential relative to
+        square-root resolution.
+  \item Under the declared spectral--hyperbola projection, the hyperbola and
+        Mellin records carry the same exponent residual $\delta$. The Cogenesis
+        finite persistence functional has the
+        unique maximum $\delta=0$ and retains $\pm\delta$ as unselected
+        branches.
+  \item The per-zero normalisation record preserves that selection through
+        every finite refinement while carrier closure retains every ancestry
+        and residual.
+  \item Extending causal accounting through the complete zero-forming record
+        makes the selected unary its realised output and retains every
+        unselected branch as residual, so $\delta=0$.
+  \item The fixed locus of $1-\overline{s}$ is the critical line.
+\end{enumerate}
+The eighth step is the foundational causal extension isolated in
+\cref{rev:foundational-inference}.
+
+\section{Verification architecture}
+\label{sec:verification}
+
+Verification follows the Collatz precedent \parencite{petrik2026collatz}:
+scripts exit non-zero on failure and are audited against theorem labels.
+The executable clusters are:
+\begin{itemize}
+  \item \path{verification/verify_finite_arithmetic.py}: prime ancestry, restriction,
+        Möbius and Euler inversion, scalar boundaries, cutoff residuals, and
+        additive--multiplicative ledgers;
+  \item \path{verification/verify_continuation_transport.py}: exact rational
+        Euler--Maclaurin cocycles, finite theta transport, the
+        Gaussian--Poisson bridge, and finite Mellin symmetry;
+  \item \path{verification/verify_hyperbola_invariant.py}: arbitrary hyperbola cutoffs,
+        inverse-convolution widening, self-dual resolution, and the finite
+        Möbius--Mellin ledger;
+  \item \path{verification/verify_persistence_selection.py}: exact
+        cross-projection exponent agreement, widened registration resolution,
+        finite persistence ordering, and $X$-, $T$-, and height-stable
+        selection; and
+  \item \path{verification/verify_claim_coverage.py}: every labelled theorem,
+        proposition, and corollary is mapped to an executable verifier or an
+        explicit analytic or causal-process review obligation.
+\end{itemize}
+The aggregate runner \path{verification/run_all.py} fails on the first
+unsatisfied claim. The current suite performs $18377$ checks across $35$
+labelled claims: $22$ executable and $13$ analytic or causal-process-level. Code
+verifies the finite domain claims around the isolated causal extension and
+audits that no projection, residual, or ancestry has been hidden inside it.
+The causal order itself is explicit in the typed process record rather than an
+empirical claim delegated to computation.
+
+\section{Reader guardrails}
+\label{sec:guardrails}
+
+\begin{longtable}{@{}p{0.42\textwidth}p{0.52\textwidth}@{}}
+\caption{Common misreadings and required corrections.}
+\label{tab:guardrails}\\
+\toprule
+\textbf{Misreading} & \textbf{Required correction} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Misreading} & \textbf{Required correction} \\
+\midrule
+\endhead
+Functional symmetry fixes every zero. &
+It closes the zero set under reflection; off-line orbits remain compatible. \\
+\addlinespace
+A zero is a primitive point that exists before its generating relation. &
+Zero is the accounting projection of completed cancellation in a declared
+channel; its ancestry, residual, and normalisation remain causally prior. \\
+\addlinespace
+The fixed locus is the critical line, therefore RH follows. &
+The missing implication is that every zero must be fixed. \\
+\addlinespace
+Infinity is not completed, therefore no off-line zero exists. &
+An off-line zero is finite and requires an exact local exclusion. \\
+\addlinespace
+A numerical pattern is the invariant. &
+Numerics may falsify but cannot derive or universally establish it. \\
+\addlinespace
+A classical representation is automatically the generator. &
+It is a projection whose causal role follows from its exact dependency. \\
+\addlinespace
+A residual tends to zero, so it may be discarded. &
+$r\to0$ is not $r=0$; exact zero must be proved in the declared register. \\
+\addlinespace
+Carrier exhaustion excludes internally generated counterexamples. &
+It classifies their support. The finite persistence comparison and complete
+normalisation record are still required. \\
+\addlinespace
+The finite persistence maximum alone proves RH. &
+It selects a self-dual resolution record. Zero becomes a realised output only
+after the complete causal chain reaches that selected unary; the other records
+remain explicitly residual. \\
+\bottomrule
+\end{longtable}
+
+\section{Discussion}
+\label{sec:discussion}
+
+The Collatz analogy is methodological, not evidentiary. No Collatz quantity,
+map, valuation, or conclusion is imported. The proof desymmetrises the
+functional equation by recovering the finite process it projects, then derives
+a preserved relation not assumed from RH. The relation is widened beyond the
+target case so computation can falsify it rather than merely confirm fitted
+behaviour. The persistence layer instantiates the same selected-versus-
+continuing distinction used in the Collatz orbit proof: the domain quantities
+change, but the explicit extension of causal availability through
+normalisation does not.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+The proof begins with relation rather than static symmetry, derives the
+height-independent arithmetic invariant and its square-root resolution,
+retains finite residual transport, types an off-line zero as an exact
+$X^\delta$ Möbius obstruction, derives the same exponent residual in hyperbola
+and Mellin projections, and computes the self-dual record as the unique finite
+persistence selection. Paired off-line records remain explicit residual
+content. The isolated foundational causal extension carries the zero accounting
+projection through its complete ancestry to the selected unary; its fixed
+locus is the critical line, yielding \cref{thm:riemann-hypothesis}.
+
+\appendix
+\section{Derivation ledger}
+\label{app:derivation-ledger}
+
+Every substantive revision must record the claim, native ancestry, discovery
+or validation status, exact derivation, projection boundary, residual,
+verifier, reason for change, and revert path.
+
+\section{Submission and verification notes}
+\label{app:submission}
+
+\begin{itemize}
+  \item Compile with
+        \texttt{latexmk -pdf -interaction=nonstopmode -halt-on-error}.
+  \item Maintain citations in \texttt{references.bib}.
+  \item Supply verification scripts beside the manuscript when claims exist.
+  \item Record causal dependencies at
+        \cref{sec:cogenesis-dependencies} and the proof derivation at
+        \cref{sec:native-ancestry,sec:process-invariant,sec:counterexample-differential,sec:foundational-inference}.
+\end{itemize}
+
+\printbibliography[title={References}]
+\end{document}

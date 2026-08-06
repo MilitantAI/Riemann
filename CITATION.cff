@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the paper in preferred-citation."
+title: "Verification material for A Cogenetic Proof of the Riemann Hypothesis"
+type: software
+authors:
+  - family-names: Petrik
+    given-names: Morgan
+    affiliation: Militant.AI
+version: "1.0"
+date-released: "2026-08-06"
+doi: 10.5281/zenodo.21817670
+url: "https://doi.org/10.5281/zenodo.21817670"
+keywords:
+  - Riemann hypothesis
+  - zeta function
+  - cogenesis
+  - relational invariance
+  - critical line
+preferred-citation:
+  type: unpublished
+  authors:
+    - family-names: Petrik
+      given-names: Morgan
+      affiliation: Militant.AI
+  title: "A Cogenetic Proof of the Riemann Hypothesis"
+  year: 2026
+  version: "1.0"
+  doi: 10.5281/zenodo.21817670
