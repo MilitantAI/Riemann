@@ -1,0 +1,561 @@
+
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1.02in,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Noto Serif}
+\newfontfamily\cogeneticglyphfont{DejaVu Serif}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\definecolor{ink}{HTML}{181818}
+\definecolor{accent}{HTML}{3F4F6F}
+\definecolor{soft}{HTML}{F3F5F8}
+
+\color{ink}
+\setstretch{1.045}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.58em}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.35em}{0.42em}
+\titlespacing*{\subsection}{0pt}{0.95em}{0.28em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Causal Necessity and Riemann}}
+\fancyhead[R]{\small Cogenesis v1.1 notation}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\newcommand{\heart}{\heartsuit}
+\newcommand{\heartplus}{\heartsuit_{+}}
+\newcommand{\heartminus}{\heartsuit_{-}}
+\newcommand{\heartsim}{\heartsuit_{\sim}}
+\newcommand{\Cctx}{\mathcal C}
+\newcommand{\Rres}{\mathcal R}
+\newcommand{\Pheart}{\mathcal P}
+\newcommand{\DeltaFork}{\Delta_{\pitchfork}}
+\newcommand{\cogL}{\mathord{\text{\cogeneticglyphfont Ͼ}}}
+\newcommand{\cogR}{\mathord{\text{\cogeneticglyphfont Ͽ}}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+
+\hypersetup{
+  pdftitle={The Riemann Hypothesis as a Relational Selection Problem},
+  pdfsubject={Compact classical translation, causal necessity, and cogenetic relational resolution},
+  pdfkeywords={Riemann Hypothesis, Cogenesis, zero, causal necessity, projection, persistence}
+}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Riemann Hypothesis as a Relational Selection Problem\par}
+\vspace{0.42em}
+{\large A compact classical translation, causal-necessity bridge,\\
+and cogenetic relational resolution\par}
+\vspace{0.9em}
+{\small Revised to Cogenesis Concise v1.1 notation}
+\end{center}
+
+\vspace{0.65em}
+
+\begin{abstract}
+This note isolates the compact relational core of a cogenetic argument for the Riemann Hypothesis and states explicitly the only apparent point of contention with classical analysis. The statement \(F(x)=0\) is meaningful only after the codomain, equality relation, evaluation rule, and distinguished zero element are available. Classical analysis therefore already presupposes zero before it can identify a zero. Cogenesis does not add a new scalar fact at this point; it asks for the causal accounting by which a presently enacted expression resolves to that already-defined scalar result. Under causal necessity, a realised result must be carried by the resolution that makes it available. An off-line zero forces a persistent M\"obius exponent differential, and that differential is the branching relation the resolution acts on. With the updated Cogenesis v1.1 typing, the Riemann branch has a unique persistence-qualified unary at displacement \(0\), while off-line displacements remain retained residuals. A claimed off-line zero therefore cannot also occupy the realised unary channel of the same enacted recovery.
+\end{abstract}
+
+\section{The target in one coordinate}
+
+Let
+\[
+J(s)=1-\bar s.
+\]
+Its fixed locus is
+\[
+\Fix(J)=\left\{s\in\mathbb C:\Re s=\frac12\right\}.
+\]
+For a putative nontrivial zero write
+\[
+\rho=\frac12+d+i\gamma,
+\qquad
+d=\Re\rho-\frac12.
+\]
+The Riemann Hypothesis is equivalent to the assertion that every realised nontrivial zero satisfies
+\[
+d=0.
+\]
+
+Reflection sends \(d\mapsto-d\). The self-dual coordinate is \(0\). Thus an off-line zero, through the persistent exponent differential it forces (next section), generates the finite admissible branch
+\[
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+
+The finite hyperbola ledger and paired Mellin weights can be parameterised so that their oriented exponent residual is the same scalar:
+\[
+r_X^{\mathrm H}(\eta)
+=
+r_T^{\mathrm M}(\eta)
+=
+\eta.
+\]
+The finite arithmetic coherence is constant:
+\[
+c_X(\eta)=1.
+\]
+In this channel the exchange split is retained rather than charged again as fragmentation, so the persistence functional reduces to
+\[
+\Pheart[\Phi_\eta]
+=
+\lambda-\eta^2.
+\]
+Therefore, for \(d\neq0\),
+\[
+\argmax_{\eta\in\{-d,0,d\}}
+\bigl(\lambda-\eta^2\bigr)
+=
+\{0\}.
+\]
+Equivalently,
+\[
+\argmin_{\eta\in\{-d,0,d\}}\eta^2=\{0\}.
+\]
+
+\section{The zero generates the branch}
+
+Take the right-hand representative \(\rho=\frac12+d+i\gamma\) with \(0<d<\frac12\) and \(\xi(\rho)=0\). The completion factors of \(\xi\) are finite and nonzero inside the critical strip, so \(\zeta(\rho)=0\).
+
+Let \(\mu\) be the M\"obius function and define the twisted Mertens coordinate
+\[
+M_\gamma(X)=\sum_{n\le X}\mu(n)n^{-i\gamma}.
+\]
+Finite Abel summation gives, for \(z\in\mathbb C\),
+\[
+\sum_{n\le X}\frac{\mu(n)}{n^{z+i\gamma}}
+=
+M_\gamma(X)X^{-z}
++
+z\int_1^X M_\gamma(x)x^{-z-1}\,dx,
+\]
+and for \(\Re z>1\) the convergent Dirichlet projection gives
+\[
+\frac1{\zeta(z+i\gamma)}
+=
+z\int_1^\infty M_\gamma(x)x^{-z-1}\,dx.
+\]
+If \(M_\gamma(X)=O\!\left(X^{1/2+d-\varepsilon}\right)\) for some \(\varepsilon>0\), the integral continues \(1/\zeta(z+i\gamma)\) holomorphically throughout \(\Re z>\frac12+d-\varepsilon\). That region contains \(z=\frac12+d\), contradicting \(\zeta(\rho)=0\). Hence, for every \(0<\varepsilon<d\),
+\[
+\mathcal P_\rho:
+\qquad
+\limsup_{X\to\infty}
+\frac{|M_\gamma(X)|}{X^{1/2+d-\varepsilon}}
+=
+\infty.
+\]
+Here the subscripted \(\mathcal P_\rho\) names this proposition; the bracketed \(\Pheart[\Phi]\) denotes persistence. The argument holds for a zero of any multiplicity, since any zero makes \(1/\zeta\) non-holomorphic. Removing a finite prefix replaces \(M_\gamma(X)\) by \(M_\gamma(X)-M_\gamma(R)\), which changes the quotient by a term tending to zero, so \(\mathcal P_\rho\) is retained at every finite refinement.
+
+In the causal grammar of the following sections, \(\mathcal P_\rho\) is a projected expression with its M\"obius--Mellin residual, and a persistent bifurcating differential: every finite refinement retains the same strict distinction between the self-dual \(X^{1/2}\) resolution and the displaced \(X^{1/2+d}\) growth. It is therefore the differential \(\DeltaFork\) on which the branching normalisation acts, and its reflected displacement records are the admissible branch
+\[
+\mathcal P_\rho
+\;\longrightarrow\;
+\DeltaFork
+\;\longrightarrow\;
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+Candidate status does not identify \(\mathcal P_\rho\) with the selected unary.
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Zero-generated branch.}
+The branch is the zero's own persistent differential, not a label attached to it afterwards. At an off-line point \(s\) with \(\xi(s)\neq0\), \(1/\zeta\) is holomorphic there, the argument above yields no obstruction, and no persistent bifurcating differential is generated. The resolution below therefore acts only on a realised zero.
+}}
+\medskip
+
+\section{What classical analysis already presupposes}
+
+Before classical analysis can assert
+\[
+F(x)=0,
+\]
+it must already have supplied enough structure for the assertion to mean anything. At minimum there is a codomain, an equality relation on that codomain, an evaluation rule for \(F(x)\), and a distinguished element denoted \(0\). In the present setting,
+\[
+0+z=z
+\qquad
+(z\in\mathbb C)
+\]
+defines the additive identity before any candidate is tested against it.
+
+Thus a zero of a function does not define zero. It identifies an evaluated expression with an already-available scalar element:
+\[
+x
+\overset{F}{\longmapsto}
+F(x)
+\overset{=}{\longleftrightarrow}
+0.
+\]
+
+This is not a cogenetic addition to classical mathematics. It is a precondition of the classical statement itself.
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Formal concession.}
+The proposition \(F(x)=0\) requires \(0\), equality, and the evaluation of \(F(x)\) to be defined prior to the proposition's truth or falsity being determined.
+}}
+\medskip
+
+The remaining question is therefore not whether zero exists, nor whether classical analysis is permitted to define it structurally. The question is what accounts for the passage from the evaluated expression to that already-defined terminal scalar account.
+
+Classical analysis ordinarily stops at ``evaluation followed by equality.'' Cogenesis retains the relation that those words compress.
+
+\section{Why the apparent contention is false under causal necessity}
+
+If a result is realised, then something made that result available. Calling the transition ``evaluation'' does not remove that dependence; it names it at the level of a formal operation. Calling the comparison ``equality'' does not make the evaluated expression causally prior to the structures required to interpret that comparison.
+
+Causal necessity therefore imposes a simple ordering:
+\[
+\text{available relation}
+\longrightarrow
+\text{enacted evaluation}
+\longrightarrow
+\text{realised result}.
+\]
+A realised result cannot be used as the prior cause of the same enactment by which it becomes available.
+
+For zero this gives
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Causal ordering.}
+Zero is defined prior to zero-identification; zero-forming is the enacted accounting by which an expression resolves to it.
+}}
+\medskip
+
+The supposed disagreement is consequently smaller than it appears. Classical analysis already concedes the prior definition. Cogenesis adds the requirement that the resolution producing the terminal account remain causally typed rather than being treated as semantically inert.
+
+Within a process-first framework that accepts causal necessity, the bridge is not an optional selection axiom. It is the requirement that a realised projection be carried by the resolution from which that projection becomes available.
+
+\section{Updated cogenetic core}
+
+The notation here follows the compact Cogenesis v1.1 grammar. The primitive relational placement is
+\[
+\boxed{
+\cogL\bullet\heart\bullet\cogR
+}.
+\]
+A local enactment types those orientations as
+\[
+\cogL^\pi_{\Cctx,\Rres},
+\qquad
+\cogR^\pi_{\Cctx,\Rres},
+\]
+where the superscript \(\pi\) is a type annotation, not an application of projection. In particular,
+\[
+\cogL^\pi_{\Cctx,\Rres}
+\not\equiv
+\odot^\pi_{\Cctx,\Rres},
+\qquad
+\cogR^\pi_{\Cctx,\Rres}
+\not\equiv
+r_\pi.
+\]
+
+The internal resolution grammar is
+\[
+\heartplus
+\leftrightarrow
+\heartminus
+\longrightarrow
+\heartsim
+\longrightarrow
+\odot.
+\]
+Projection then makes a local unary observationally available:
+\[
+\odot
+\longrightarrow
+\odot^\pi_{\Cctx,\Rres}+r_\pi
+\longrightarrow
+\heartsim,
+\]
+with
+\[
+\odot^\pi_{\Cctx,\Rres}
+=
+\pi_{\Cctx,\Rres}(\odot).
+\]
+
+Persistence is local and typed. A stable expression \(\Phi^\ast\) satisfies
+\[
+\Pheart_{\Cctx,\Rres}[\Phi^\ast]
+>
+\Pheart_{\Cctx,\Rres}[\Psi]
+\quad
+\text{for every }
+\Psi\in
+\mathcal V_{\mathrm{adm}}
+(\Cctx,\Rres,\cogL^\pi_{\Cctx,\Rres}).
+\]
+The carried relation is not a separately stored ancestry object; it is relation already available in the present enactment.
+
+If a persistent differential branches, normalisation retains the distinction between the selected unary, unselected branches, and continuing differential:
+\[
+\heartsim\!\left(\DeltaFork(\odot)\right)
+=
+\odot^\ast
++
+r_{\pitchfork}
++
+\Delta_0'.
+\]
+The plus signs denote co-retention unless and until a numerical projection authorises scalar addition.
+
+The target recovery discipline is likewise typed:
+\[
+\cogL^\pi_{T;\Cctx_T,\Rres_T}
+\longrightarrow
+\Cctx_T
+\longrightarrow
+\Rres_T
+\longrightarrow
+\Pi_{T;\Cctx_T,\Rres_T}
+\longrightarrow
+T+R_T.
+\]
+For determination through persistence,
+\[
+\mathcal O_T
+\longrightarrow
+(\Cctx_T,\Rres_T)
+\longrightarrow
+\Pi_T
+\longrightarrow
+\Pheart_T
+\longrightarrow
+\odot_T^\ast+R_T.
+\]
+Residuals are scoped: \(r_{\pitchfork}\) retains unselected branches, \(r_\pi\) retains what a particular projection does not carry, and \(R_T\) retains what the target recovery does not carry.
+
+\section{Riemann instantiated in the updated grammar}
+
+For the alleged off-line zero,
+\[
+\rho=\frac12+d+i\gamma,
+\qquad d>0,
+\]
+the persistent differential \(\mathcal P_\rho\) is the branching \(\DeltaFork\), and the presently admissible variations it generates are
+\[
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+Because
+\[
+\Pheart[\Phi_\eta]
+=
+\lambda-\eta^2,
+\]
+the unique local persistence maximum is
+\[
+\Phi^\ast=\Phi_0.
+\]
+Normalisation therefore resolves
+\[
+\odot_\xi^\ast=\Phi_0,
+\]
+while the off-line records remain carried in the branch residual:
+\[
+\heartsim(\DeltaFork)
+=
+\underbrace{\Phi_0}_{\odot_\xi^\ast}
++
+\underbrace{\{\Phi_{-d},\Phi_d\}}_{r_{\pitchfork}}
++
+\Delta_0'.
+\]
+
+Nothing has been erased. The distinction is register-level: persistence of a residual expression is not occupation of the realised unary channel.
+
+Now consider the classical claim
+\[
+\xi(\rho)=0.
+\]
+The scalar \(0\) is already defined before this claim is evaluated. If the claim is realised through the enacted \(\xi\)-recovery, its domain value must be carried by that recovery:
+\[
+\mathcal O_\xi
+\longrightarrow
+(\Cctx_\xi,\Rres_\xi)
+\longrightarrow
+\Pi_\xi
+\longrightarrow
+\Pheart_\xi
+\longrightarrow
+\odot_\xi^\ast+R_\xi.
+\]
+The candidate record that is asserted to realise the zero cannot at the same time remain only an unselected branch of that same enacted resolution. Therefore a realised zero at \(\Phi_d\) requires
+\[
+\Phi_d=\odot_\xi^\ast
+\]
+in the realised-output register.
+
+But the persistence calculation has already determined
+\[
+\odot_\xi^\ast=\Phi_0.
+\]
+Hence
+\[
+\Phi_d=\Phi_0.
+\]
+With the displacement projection
+\[
+\pi_\delta(\Phi_\eta)=\eta,
+\]
+we obtain
+\[
+d
+=
+\pi_\delta(\Phi_d)
+=
+\pi_\delta(\Phi_0)
+=
+0,
+\]
+contradicting \(d>0\).
+
+Thus an off-line displacement may remain present as retained relational content, but it cannot also be the realised zero-forming unary of the same enacted recovery.
+
+\section{The classical translation after causal accounting}
+
+The earlier compression
+\[
+\text{realised zero}
+\Longrightarrow
+\text{minimum-residual representative}
+\]
+is mathematically compact but causally under-described. It makes the bridge look like an additional selection axiom.
+
+The stronger translation is:
+\[
+\boxed{
+\begin{gathered}
+F(x)=0\text{ presupposes an already-defined }0,\\[2pt]
+\text{a realised value is available only through the evaluation that realises it},\\[2pt]
+\text{therefore the realised value must be carried by the resolved expression of that evaluation.}
+\end{gathered}}
+\]
+
+For the Riemann instantiation:
+\[
+\boxed{
+\begin{gathered}
+\xi(\rho)=0,\ d>0
+\Longrightarrow
+\mathcal P_\rho
+=
+\DeltaFork
+\Longrightarrow
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\},\\[2pt]
+\Pheart[\Phi_\eta]
+=
+\lambda-\eta^2
+\Longrightarrow
+\odot_\xi^\ast=\Phi_0,\\[2pt]
+\xi(\rho)=0
+\text{ realised through }\Pi_\xi
+\Longrightarrow
+\Phi_d=\odot_\xi^\ast,\\[2pt]
+\pi_\delta(\odot_\xi^\ast)=0
+\Longrightarrow
+d=0.
+\end{gathered}}
+\]
+
+The apparent contention is therefore not over zero. Zero has already been conceded by the grammar required to state the problem. The contention is whether the causal relation by which an evaluated expression becomes equal to zero may be omitted from the accounting. Cogenesis says it may be suppressed typographically but not causally.
+
+\section{Compact proof skeleton}
+
+Assume
+\[
+\xi\!\left(\frac12+d+i\gamma\right)=0
+\qquad(d>0).
+\]
+By the M\"obius--Mellin argument, the zero forces the persistent exponent differential
+\[
+\mathcal P_\rho:
+\qquad
+\limsup_{X\to\infty}
+\frac{|M_\gamma(X)|}{X^{1/2+d-\varepsilon}}
+=
+\infty
+\qquad(0<\varepsilon<d),
+\]
+retained at every finite refinement. As a persistent bifurcating differential, \(\mathcal P_\rho\) and its reflection generate
+\[
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+Finite arithmetic and Mellin bookkeeping register the same displacement coordinate, while the coherence contribution is constant. Hence
+\[
+\Pheart(\eta)=\lambda-\eta^2
+\]
+has the unique admissible maximum at \(0\), so
+\[
+\odot_\xi^\ast=\Phi_0.
+\]
+
+The scalar zero in the claim is defined prior to the claim's evaluation. Under causal necessity, if that zero is realised through the presently enacted recovery, the realised record must be carried by the resolution producing it. Thus the claimed zero-bearing record \(\Phi_d\) must occupy the realised unary channel:
+\[
+\Phi_d=\odot_\xi^\ast=\Phi_0.
+\]
+Therefore
+\[
+d=0,
+\]
+contradicting \(d>0\). No off-line candidate can complete as a realised zero-forming output, and every realised nontrivial zero lies on
+\[
+\Re s=\frac12.
+\]
+
+\section{What has actually been added}
+
+No new definition of the scalar zero has been introduced. No off-line branch has been deleted. No symmetry orbit has been mistaken for a fixed point. The branch calculation remains finite and explicit, and the branch itself is generated by the zero's own M\"obius exponent differential.
+
+The added discipline is causal typing:
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Causal typing.}
+Availability precedes realisation, and a realised projection is carried by the resolution that makes it available.
+}}
+\medskip
+
+Classical notation already requires the structures needed to speak of zero. Cogenesis keeps visible the causal relation by which an enacted expression resolves into that already-defined account.
+
+In that sense, the only apparent contention is a false one once causal necessity is admitted: the scalar target is prior by definition, while its realised attainment remains posterior to the process that makes the attainment available.
+
+\begin{center}
+\vspace{1.15em}
+\emph{Infinite nuance, limitless determination.}
+\end{center}
+
+\end{document}
