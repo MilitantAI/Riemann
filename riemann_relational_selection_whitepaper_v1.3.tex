@@ -598,15 +598,25 @@ Every \(N\ge1\) splits into divisor pairs
 \[
 N=d\cdot\frac Nd.
 \]
-Exchanging the two factors, \(d\leftrightarrow N/d\), pairs each small divisor with a large one. Writing \(d=N^\theta\), the exchange is
+Exchanging the two factors, \(d\leftrightarrow N/d\), pairs each small divisor with a large one. Among integer divisors an equal pair exists only when \(N\) is a square: for \(N=6\) the pairs are \(1\cdot6\) and \(2\cdot3\), and the exchange fixes neither.
+
+The balance becomes exact once the cutoffs may be any positive reals. Fix \(N>1\) and write a factorisation as \(uv=N\) with
+\[
+u=N^\theta,
+\qquad
+v=N^{1-\theta},
+\qquad
+\theta\in\mathbb R.
+\]
+Exchanging the factors is
 \[
 \theta\longmapsto1-\theta,
 \]
-and it leaves exactly one value where it is:
+and it leaves exactly one cutoff pair where it is:
 \[
-d=\frac Nd
+u=v
 \iff
-d=\sqrt N=N^{1/2}
+u=\sqrt N=N^{1/2}
 \iff
 \theta=\frac12.
 \]
