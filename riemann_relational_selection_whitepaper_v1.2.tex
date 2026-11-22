@@ -163,31 +163,49 @@ If \(M_\gamma(X)=O\!\left(X^{1/2+d-\varepsilon}\right)\) for some \(\varepsilon>
 \]
 Here the subscripted \(\mathcal P_\rho\) names this proposition; the bracketed \(\Pheart[\Phi]\) denotes persistence. The argument holds for a zero of any multiplicity, since any zero makes \(1/\zeta\) non-holomorphic. Removing a finite prefix replaces \(M_\gamma(X)\) by \(M_\gamma(X)-M_\gamma(R)\), which changes the quotient by a term tending to zero, so \(\mathcal P_\rho\) is retained at every finite refinement.
 
-In the causal grammar of the following sections, \(\mathcal P_\rho\) is a projected expression with its M\"obius--Mellin residual, and a persistent bifurcating differential: every finite refinement retains the same strict distinction between the self-dual \(X^{1/2}\) resolution and the displaced \(X^{1/2+d}\) growth. It is therefore the differential \(\DeltaFork\) on which the branching normalisation acts, and its reflected displacement records are the admissible branch
+The zero also defines its own refinement record. In the coordinate shifted by its height \(\gamma\), put \(z_\rho=\frac12+d\); then \(1/\zeta(z+i\gamma)\) has a pole exactly at \(z=z_\rho\). The candidate's record is keyed to that pole:
 \[
-\mathcal P_\rho
-\;\longrightarrow\;
-\DeltaFork
+\mathfrak B_\rho
+:=
+\Bigl(
+\{\rho,\bar\rho,1-\rho,1-\bar\rho\},\;
+\operatorname{Comp}(\rho);\;
+M_\gamma(X),\;
+\mathfrak A_{\gamma,z_\rho;X};\;
+\mathfrak R_{\rho;X}
+\Bigr),
+\]
+\[
+\mathfrak A_{\gamma,z_\rho;X}
+=
+\Bigl(M_\gamma(X)X^{-z_\rho},\;
+z_\rho\textstyle\int_1^X M_\gamma(x)x^{-z_\rho-1}\,dx\Bigr),
+\]
+where \(\operatorname{Comp}(\rho)\) is the tuple of completion factors of \(\xi\) and \(\mathfrak R_{\rho;X}\) their separately typed finite projection and continuation residuals, each transported through every finite refinement by its finite cocycle.
+
+\(\mathcal P_\rho\) is the finite-prefix-invariant witness of this record: at every finite refinement it retains the strict distinction between the self-dual \(X^{1/2}\) resolution and the displaced \(X^{1/2+d}\) growth left by the pole at \(z_\rho\). In the causal grammar of the following sections, \(\mathfrak B_\rho\), so witnessed, is a projected expression with its M\"obius--Mellin residual and a persistent bifurcating differential. It is therefore the differential \(\DeltaFork\) on which the branching normalisation acts, and its reflected displacement records are the admissible branch
+\[
+\DeltaFork=\mathfrak B_\rho
+\quad(\text{witness }\mathcal P_\rho\text{ at every finite refinement})
 \;\longrightarrow\;
 \mathcal V_{\mathrm{adm}}
 =
 \{\Phi_{-d},\Phi_0,\Phi_d\}.
 \]
-Candidate status does not identify \(\mathcal P_\rho\) with the selected unary.
+Candidate status does not identify \(\mathfrak B_\rho\) with the selected unary.
 
 \medskip
 \noindent
 \fcolorbox{accent}{soft}{%
 \parbox{0.91\linewidth}{
 \textbf{Zero-generated branch.}
-The branch is generated from the candidate's own record. In the coordinate shifted by its height \(\gamma\), put \(z_\rho=\frac12+d\); then \(1/\zeta(z+i\gamma)\) has its pole exactly at \(z=z_\rho\), and the record carries the reflection orbit \(\{\rho,\bar\rho,1-\rho,1-\bar\rho\}\), the completion factors, \(M_\gamma(X)\), and the Abel pair
+The input to the branch is the candidate's own record \(\mathfrak B_\rho\), keyed to the pole of \(1/\zeta(z+i\gamma)\) at \(z=z_\rho\). \(\mathcal P_\rho\) is the analytic witness this pole leaves at every finite refinement, not the differential itself. The implication runs one way, from the zero to \(\mathcal P_\rho\); the growth statement alone does not single out the zero, since any pole of \(1/\zeta(z+i\gamma)\) in \(\Re z\ge\frac12+d\) produces the same growth. What identifies the candidate is the pole at \(z_\rho\) carried in its record.
+
+The scalar equality \(\xi(\rho)=0\) is the classical claim. Its typed zero-forming projection is
 \[
-\mathfrak A_{\gamma,z_\rho;X}
-=
-\Bigl(M_\gamma(X)X^{-z_\rho},\;
-z_\rho\textstyle\int_1^X M_\gamma(x)x^{-z_\rho-1}\,dx\Bigr)
+\mathcal Z_\rho=\xi(\rho)+r_{0,\rho}=0+r_{0,\rho}.
 \]
-at that pole. \(\mathcal P_\rho\) is the analytic witness this pole leaves at every finite refinement; the implication runs from the zero to \(\mathcal P_\rho\), and the growth statement alone does not single out the zero, since any pole of \(1/\zeta(z+i\gamma)\) in \(\Re z\ge\frac12+d\) produces the same growth. The record carrying the realised output \(\xi(\rho)=0+r_0\) is fixed separately, by the output-carrier step applied to that zero-forming projection in the sections that follow.
+Which record carries \(\mathcal Z_\rho\) as realised output is not decided by the Abel argument; it is fixed separately, by the output-carrier step in the sections that follow.
 }}
 \medskip
 
