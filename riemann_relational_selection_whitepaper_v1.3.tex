@@ -623,13 +623,11 @@ u=\sqrt N=N^{1/2}
 
 \subsection*{3. The balance point becomes the line}
 
-The derivation paper records the same balance in its own finite ledger.
-
-The M\"obius--hyperbola invariant
+In the derivation paper this balance appears in a finite ledger. For every \(X\ge1\) and every \(s\in\mathbb C\),
 \[
 \sum_{ab\le X}\frac{\mu(a)}{(ab)^s}=1
 \]
-holds for every \(X\ge1\) and every \(s\in\mathbb C\) (``Finite invariant normalisation''). It holds for every cutoff pair \(u_\theta=X^\theta\), \(v_\theta=X^{1-\theta}\) (``Arbitrary hyperbola cutoff''), and the factor-channel exchange \(\theta\mapsto1-\theta\) has the unique self-dual cutoff \(\theta=\tfrac12\), \(u=v=\sqrt X\). The script \texttt{verify\_\allowbreak hyperbola\_\allowbreak invariant.py} checks these finite identities.
+(``Finite invariant normalisation''). The identity holds for every cutoff pair \(u_\theta=X^\theta\), \(v_\theta=X^{1-\theta}\) (``Arbitrary hyperbola cutoff''), and the factor-channel exchange \(\theta\mapsto1-\theta\) has the unique self-dual cutoff \(\theta=\tfrac12\), \(u=v=\sqrt X\). The script \texttt{verify\_\allowbreak hyperbola\_\allowbreak invariant.py} checks these finite identities.
 
 The passage from this divisor exchange to the functional symmetry \(\xi(s)=\xi(1-s)\) is not immediate. It goes through the theta inversion
 \[
