@@ -583,4 +583,64 @@ In that sense, the only apparent contention is a false one once causal necessity
 \emph{Infinite nuance, limitless determination.}
 \end{center}
 
+\section*{Appendix: The arithmetic origin of the critical line}
+
+This appendix is orientation only. The argument above does not depend on it, and nothing here is offered as a proof step. Its purpose is to show where the \(\tfrac12\) comes from before any analysis is applied: it is the balance point of multiplication, and multiplication rests on counting.
+
+\subsection*{1. Counting}
+
+The step \(n\mapsto n+1\) is not one object placed beside another. It is a present unary together with the process that makes the next one available. The step is ordered: \(n\) is available before \(n+1\) is realised. Every structure built from counting inherits that before and after.
+
+\subsection*{2. Multiplying}
+
+Every \(N\ge1\) splits into divisor pairs
+\[
+N=d\cdot\frac Nd.
+\]
+Exchanging the two factors, \(d\leftrightarrow N/d\), pairs each small divisor with a large one. Writing \(d=N^\theta\), the exchange is
+\[
+\theta\longmapsto1-\theta,
+\]
+and it leaves exactly one value where it is:
+\[
+d=\frac Nd
+\iff
+d=\sqrt N=N^{1/2}
+\iff
+\theta=\frac12.
+\]
+
+\subsection*{3. The balance point becomes the line}
+
+The derivation paper records the same balance in its own finite ledger. The M\"obius--hyperbola invariant
+\[
+\sum_{ab\le X}\frac{\mu(a)}{(ab)^s}=1
+\]
+holds for every \(X\ge1\) and every \(s\in\mathbb C\) (``Finite invariant normalisation''). It holds for every cutoff pair \(u_\theta=X^\theta\), \(v_\theta=X^{1-\theta}\) (``Arbitrary hyperbola cutoff''), and the factor-channel exchange \(\theta\mapsto1-\theta\) has the unique self-dual cutoff \(\theta=\tfrac12\), \(u=v=\sqrt X\). The script \texttt{verify\_\allowbreak hyperbola\_\allowbreak invariant.py} checks these finite identities.
+
+The passage from this divisor exchange to the functional symmetry \(\xi(s)=\xi(1-s)\) is not immediate. It goes through the theta inversion
+\[
+\Theta(x)=x^{-1/2}\Theta(x^{-1})
+\]
+and the Mellin transform, which the derivation paper carries out with explicit finite residuals (``Finite Gaussian--Poisson bridge'' and ``Mellin recovery of functional symmetry''). Under that transport the exponent exchange \(\theta\mapsto1-\theta\) appears as \(s\mapsto1-s\), and together with conjugation as \(J(s)=1-\bar s\). Its fixed set is \(\Re s=\tfrac12\). The critical line is therefore not placed into the plane from outside: it is where multiplication's own exchange balances.
+
+\subsection*{4. An off-line zero as a persistent imbalance}
+
+A zero at \(\rho=\tfrac12+d+i\gamma\) with \(d>0\) would be a displacement \(d\) away from that balance. Section 2 shows that such a zero forces at least a matching growth in the twisted M\"obius sum: for every \(\varepsilon>0\), \(M_\gamma(X)\) is not \(O\!\left(X^{1/2+d-\varepsilon}\right)\). The zero sets only this lower bound; the actual growth depends on all the zeros together. The imbalance must therefore persist at every finite stage of refinement.
+
+The paper's result is that persistence selects the balanced record. The displaced records \(\Phi_{\pm d}\) are kept, as the branch residual \(r_{\pitchfork}\), but they cannot also be the realised zero:
+\[
+\heartsim(\DeltaFork)
+=
+\underbrace{\Phi_0}_{\odot_\xi^\ast}
++
+\underbrace{\{\Phi_{-d},\Phi_d\}}_{r_{\pitchfork}}
++
+\Delta_0'.
+\]
+
+\subsection*{In one line}
+
+Counting orders; multiplication pairs; the pairing balances at \(\tfrac12\); a zero away from that balance is retained as residual, not realised as output.
+
 \end{document}
