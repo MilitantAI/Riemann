@@ -627,7 +627,7 @@ In the derivation paper this balance appears in a finite ledger. For every \(X\g
 \[
 \sum_{ab\le X}\frac{\mu(a)}{(ab)^s}=1
 \]
-(``Finite invariant normalisation''). The identity holds for every cutoff pair \(u_\theta=X^\theta\), \(v_\theta=X^{1-\theta}\) (``Arbitrary hyperbola cutoff''), and the factor-channel exchange \(\theta\mapsto1-\theta\) has the unique self-dual cutoff \(\theta=\tfrac12\), \(u=v=\sqrt X\). The script \texttt{verify\_\allowbreak hyperbola\_\allowbreak invariant.py} checks these finite identities.
+(``Finite invariant normalisation''). The identity holds for every cutoff pair \(u_\theta=X^\theta\), \(v_\theta=X^{1-\theta}\) (``Arbitrary hyperbola cutoff''). For \(X>1\), the factor-channel exchange \(\theta\mapsto1-\theta\) has the unique self-dual cutoff \(\theta=\tfrac12\), \(u=v=\sqrt X\); at \(X=1\), every \(\theta\) gives the same pair \((1,1)\). The script \texttt{verify\_\allowbreak hyperbola\_\allowbreak invariant.py} checks these finite identities.
 
 The functional symmetry \(\xi(s)=\xi(1-s)\) is not derived from this divisor exchange. The derivation paper recovers it on its own terms, from the theta inversion
 \[
@@ -637,7 +637,7 @@ and the Mellin transform, with explicit finite residuals (``Finite Gaussian--Poi
 
 \subsection*{4. An off-line zero as a persistent imbalance}
 
-A hypothetical zero at \(\rho=\tfrac12+d+i\gamma\) with \(d>0\) would be a displacement \(d\) away from that balance. The section ``The zero generates the branch'' shows that such a zero rules out any slower uniform bound on the twisted M\"obius sum: for every \(\varepsilon>0\), \(M_\gamma(X)\) is not \(O\!\left(X^{1/2+d-\varepsilon}\right)\). This excludes a big-O bound; it is not a pointwise lower bound on \(M_\gamma(X)\) at any particular \(X\), and the growth alone does not identify which zero produced it. Since changing finitely many terms cannot affect a big-O bound, the obstruction persists at every finite stage of refinement.
+A hypothetical zero at \(\rho=\tfrac12+d+i\gamma\) with \(d>0\) would be a displacement \(d\) away from that balance. The section ``The zero generates the branch'' shows that such a zero rules out any slower uniform bound on the twisted M\"obius sum: for each \(\varepsilon>0\), no constant \(C\) makes \(\lvert M_\gamma(X)\rvert\le C X^{1/2+d-\varepsilon}\) hold for all sufficiently large \(X\). This excludes a big-O bound; it is not a pointwise lower bound on \(M_\gamma(X)\) at any particular \(X\), and the growth alone does not identify which zero produced it. For \(0<\varepsilon<d\), the comparison scale grows without bound, so the fixed constant added by changing finitely many terms cannot restore the bound, and the obstruction persists at every finite stage of refinement.
 
 The paper's result is that persistence selects the balanced record. The displaced records \(\Phi_{\pm d}\) are kept, as the branch residual \(r_{\pitchfork}\), but they cannot also be the realised zero:
 \[
