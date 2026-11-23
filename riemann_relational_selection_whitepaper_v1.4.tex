@@ -1,0 +1,744 @@
+
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1.02in,headheight=14pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{Noto Serif}
+\newfontfamily\cogeneticglyphfont{DejaVu Serif}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+
+\definecolor{ink}{HTML}{181818}
+\definecolor{accent}{HTML}{3F4F6F}
+\definecolor{soft}{HTML}{F3F5F8}
+
+\color{ink}
+\setstretch{1.045}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.58em}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.35em}{0.42em}
+\titlespacing*{\subsection}{0pt}{0.95em}{0.28em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Causal Necessity and Riemann}}
+\fancyhead[R]{\small Cogenesis v1.1 notation}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\newcommand{\heart}{\heartsuit}
+\newcommand{\heartplus}{\heartsuit_{+}}
+\newcommand{\heartminus}{\heartsuit_{-}}
+\newcommand{\heartsim}{\heartsuit_{\sim}}
+\newcommand{\Cctx}{\mathcal C}
+\newcommand{\Rres}{\mathcal R}
+\newcommand{\Pheart}{\mathcal P}
+\newcommand{\DeltaFork}{\Delta_{\pitchfork}}
+\newcommand{\cogL}{\mathord{\text{\cogeneticglyphfont Ͼ}}}
+\newcommand{\cogR}{\mathord{\text{\cogeneticglyphfont Ͽ}}}
+\newcommand{\Fix}{\operatorname{Fix}}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\argmin}{\operatorname*{arg\,min}}
+
+\hypersetup{
+  pdftitle={The Riemann Hypothesis as a Relational Selection Problem},
+  pdfsubject={Compact classical translation, causal necessity, and cogenetic relational resolution},
+  pdfkeywords={Riemann Hypothesis, Cogenesis, zero, causal necessity, projection, persistence}
+}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries The Riemann Hypothesis as a Relational Selection Problem\par}
+\vspace{0.42em}
+{\large A compact classical translation, causal-necessity bridge,\\
+and cogenetic relational resolution\par}
+\vspace{0.9em}
+{\small Revised to Cogenesis Concise v1.1 notation}
+\end{center}
+
+\vspace{0.65em}
+
+\begin{abstract}
+This note isolates the compact relational core of a cogenetic argument for the Riemann Hypothesis and states explicitly the only apparent point of contention with classical analysis. The statement \(F(x)=0\) is meaningful only after the codomain, equality relation, evaluation rule, and distinguished zero element are available. Classical analysis therefore already presupposes zero before it can identify a zero. Cogenesis does not add a new scalar fact at this point; it asks for the causal accounting by which a presently enacted expression resolves to that already-defined scalar result. Under causal necessity, a realised result must be carried by the resolution that makes it available. An off-line zero defines its own refinement record, keyed to the pole of the shifted reciprocal \(1/\zeta\) at the candidate, and a persistent M\"obius exponent obstruction witnesses at every finite refinement that this record branches; the record is the differential the resolution acts on. With the updated Cogenesis v1.1 typing, the Riemann branch has a unique persistence-qualified unary at displacement \(0\), while off-line displacements remain retained residuals. A claimed off-line zero therefore cannot also occupy the realised unary channel of the same enacted recovery.
+At the candidate's original displacement, the continued M\"obius--Mellin remainder carries the pole and the first-order prime term accounts for its order; the zero clock reading and winding \(m\) are readouts of one relation.
+\end{abstract}
+
+\section{The target in one coordinate}
+
+Let
+\[
+J(s)=1-\bar s.
+\]
+Its fixed locus is
+\[
+\Fix(J)=\left\{s\in\mathbb C:\Re s=\frac12\right\}.
+\]
+For a putative nontrivial zero write
+\[
+\rho=\frac12+d+i\gamma,
+\qquad
+d=\Re\rho-\frac12.
+\]
+The Riemann Hypothesis is equivalent to the assertion that every realised nontrivial zero satisfies
+\[
+d=0.
+\]
+
+Reflection sends \(d\mapsto-d\). The self-dual coordinate is \(0\). Thus an off-line zero, through its own pole-keyed refinement record (next section), generates the finite admissible branch
+\[
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+
+The finite hyperbola ledger and paired Mellin weights can be parameterised so that their oriented exponent residual is the same scalar:
+\[
+r_X^{\mathrm H}(\eta)
+=
+r_T^{\mathrm M}(\eta)
+=
+\eta.
+\]
+The finite arithmetic coherence is constant:
+\[
+c_X(\eta)=1.
+\]
+In this channel the exchange split is retained rather than charged again as fragmentation, so the persistence functional reduces to
+\[
+\Pheart[\Phi_\eta]
+=
+\lambda-\eta^2.
+\]
+Therefore, for \(d\neq0\),
+\[
+\argmax_{\eta\in\{-d,0,d\}}
+\bigl(\lambda-\eta^2\bigr)
+=
+\{0\}.
+\]
+Equivalently,
+\[
+\argmin_{\eta\in\{-d,0,d\}}\eta^2=\{0\}.
+\]
+
+\section{The zero generates the branch}
+
+Take the right-hand representative \(\rho=\frac12+d+i\gamma\) with \(0<d<\frac12\) and \(\xi(\rho)=0\). The completion factors of \(\xi\) are finite and nonzero inside the critical strip, so \(\zeta(\rho)=0\).
+
+Let \(\mu\) be the M\"obius function and define the twisted Mertens coordinate
+\[
+M_\gamma(X)=\sum_{n\le X}\mu(n)n^{-i\gamma}.
+\]
+Finite Abel summation gives, for \(z\in\mathbb C\),
+\[
+\sum_{n\le X}\frac{\mu(n)}{n^{z+i\gamma}}
+=
+M_\gamma(X)X^{-z}
++
+z\int_1^X M_\gamma(x)x^{-z-1}\,dx,
+\]
+and for \(\Re z>1\) the convergent Dirichlet projection gives
+\[
+\frac1{\zeta(z+i\gamma)}
+=
+z\int_1^\infty M_\gamma(x)x^{-z-1}\,dx.
+\]
+If \(M_\gamma(X)=O\!\left(X^{1/2+d-\varepsilon}\right)\) for some \(\varepsilon>0\), the integral continues \(1/\zeta(z+i\gamma)\) holomorphically throughout \(\Re z>\frac12+d-\varepsilon\). That region contains \(z=\frac12+d\), contradicting \(\zeta(\rho)=0\). Hence, for every \(0<\varepsilon<d\),
+\[
+\mathcal P_\rho:
+\qquad
+\limsup_{X\to\infty}
+\frac{|M_\gamma(X)|}{X^{1/2+d-\varepsilon}}
+=
+\infty.
+\]
+Here the subscripted \(\mathcal P_\rho\) names this proposition; the bracketed \(\Pheart[\Phi]\) denotes persistence. The argument holds for a zero of any multiplicity, since any zero makes \(1/\zeta\) non-holomorphic. Removing a finite prefix replaces \(M_\gamma(X)\) by \(M_\gamma(X)-M_\gamma(R)\), which changes the quotient by a term tending to zero, so \(\mathcal P_\rho\) is retained at every finite refinement.
+
+The zero also defines its own refinement record. In the coordinate shifted by its height \(\gamma\), put \(z_\rho=\frac12+d\); then \(1/\zeta(z+i\gamma)\) has a pole exactly at \(z=z_\rho\). The candidate's record is keyed to that pole:
+\[
+\mathfrak B_\rho
+:=
+\Bigl(
+\{\rho,\bar\rho,1-\rho,1-\bar\rho\},\;
+\operatorname{Comp}(\rho);\;
+M_\gamma(X),\;
+\mathfrak A_{\gamma,z_\rho;X};\;
+\mathfrak R_{\rho;X}
+\Bigr),
+\]
+\[
+\mathfrak A_{\gamma,z_\rho;X}
+=
+\Bigl(M_\gamma(X)X^{-z_\rho},\;
+z_\rho\textstyle\int_1^X M_\gamma(x)x^{-z_\rho-1}\,dx\Bigr),
+\]
+where \(\operatorname{Comp}(\rho)\) is the tuple of completion factors of \(\xi\) and \(\mathfrak R_{\rho;X}\) their separately typed finite projection and continuation residuals, each transported through every finite refinement by its finite cocycle.
+
+\(\mathcal P_\rho\) is the finite-prefix-invariant witness of this record: at every finite refinement it retains the strict distinction between the self-dual \(X^{1/2}\) resolution and the displaced \(X^{1/2+d}\) growth left by the pole at \(z_\rho\). In the causal grammar of the following sections, \(\mathfrak B_\rho\), so witnessed, is a projected expression with its M\"obius--Mellin residual and a persistent bifurcating differential. It is therefore the differential \(\DeltaFork\) on which the branching normalisation acts, and its reflected displacement records are the admissible branch
+\[
+\DeltaFork=\mathfrak B_\rho
+\quad(\text{witness }\mathcal P_\rho\text{ at every finite refinement})
+\;\longrightarrow\;
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+Candidate status does not identify \(\mathfrak B_\rho\) with the selected unary.
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Zero-generated branch.}
+The input to the branch is the candidate's own record \(\mathfrak B_\rho\), keyed to the pole of \(1/\zeta(z+i\gamma)\) at \(z=z_\rho\). \(\mathcal P_\rho\) is the analytic witness this pole leaves at every finite refinement, not the differential itself. The implication runs one way, from the zero to \(\mathcal P_\rho\); the growth statement alone does not single out the zero, since any pole of \(1/\zeta(z+i\gamma)\) in \(\Re z\ge\frac12+d\) produces the same growth. What identifies the candidate is the pole at \(z_\rho\) carried in its record.
+
+The scalar equality \(\xi(\rho)=0\) is the classical claim. Its typed zero-forming projection is
+\[
+\mathcal Z_\rho=\xi(\rho)+r_{0,\rho}=0+r_{0,\rho}.
+\]
+Which record carries \(\mathcal Z_\rho\) as realised output is not decided by the Abel argument; it is fixed separately, by the output-carrier step in the sections that follow.
+}}
+\medskip
+
+\section{Where the pole is carried}
+
+At the original displacement \(d\), the pole is carried by the \textbf{continued M\"obius--Mellin remainder}. In the Euler representation of the same recovery, its singularity comes from the \textbf{first-order prime term}. Both assignments follow from the \(\xi\)-recovery.
+
+\subsection{The continued M\"obius--Mellin remainder}
+
+Take a nontrivial zero \(\rho=\tfrac12+d+i\gamma=\beta+i\gamma\) of order \(m\), with \(0<d<\tfrac12\) and \(\beta=\tfrac12+d=z_\rho\). A candidate with \(d<0\) is covered by applying the argument to its reflection \(1-\bar\rho\), which has the same order. Set
+\[
+K(s)=\tfrac12s(s-1)\pi^{-s/2}\Gamma(s/2),
+\qquad
+\xi(s)=K(s)\zeta(s).
+\]
+The finite theta--Mellin ledger includes the scale defect and boundary term and recovers \(\xi\) in the refinement limit (derivation paper, ``Mellin recovery of functional symmetry''). At \(\rho\) the factor \(s(s-1)\) is nonzero, \(\pi^{-s/2}\) is nonzero, and \(\Gamma(s/2)\) is finite and has no zeros. Thus \(K(\rho)\ne0\), and \(K(z+i\gamma)/\xi(z+i\gamma)\) has a pole of order \(m\) at \(z=\beta\).
+
+For each finite \(X\ge1\), the Abel ledger of \(M_\gamma\) gives the exact split
+\[
+\frac{K(z+i\gamma)}{\xi(z+i\gamma)}
+=
+\underbrace{\sum_{n\le X}\mu(n)n^{-z-i\gamma}}_{\text{entire in }z}
++
+R_{\gamma,X}(z).
+\]
+The remainder is defined meromorphically by
+\[
+R_{\gamma,X}(z)
+:=
+\frac{1}{\zeta(z+i\gamma)}
+-
+\sum_{n\le X}\mu(n)n^{-z-i\gamma}
+=
+\sum_{n>X}\mu(n)n^{-z-i\gamma}
+\quad(\Re z>1\text{ for the series}).
+\]
+On \(\Re z>1\) this is the unresolved Abel boundary in the derivation paper's ``Finite M\"obius--Mellin ledger'' (see also \href{https://dlmf.nist.gov/27.4.E5}{DLMF 27.4.E5}). Taking Laurent principal parts at the \textbf{original} \(z=\beta\) gives
+\[
+\boxed{\operatorname{PP}_{\beta}R_{\gamma,X}
+=\operatorname{PP}_{\beta}\frac1{\zeta(z+i\gamma)}\ne0.}
+\]
+Changing \(X\) adds or subtracts a finite Dirichlet polynomial. Thus the \emph{whole principal part} stays in the remainder at every finite refinement.
+
+In the per-zero record the lifted self-dual projection sends the readout coordinate to \(s_0=\tfrac12+i\gamma\) (derivation paper, ``Finite Riemann persistence sample''). In the present branch record, the retained displaced branch keeps the original pole key.
+
+\subsection{The first-order prime term}
+
+On \(\Re s>1\), take the branch of \(\log\zeta\) specified by the Euler product and write
+\[
+\log\zeta=P+H,\qquad
+P(s)=\sum_p p^{-s},\qquad
+H(s)=\sum_p\sum_{k\ge2}\frac{p^{-ks}}{k}.
+\]
+The series for \(H\) converges locally uniformly on \(\Re s>\tfrac12\), since on \(\Re s\ge\sigma>\tfrac12\) the inner sum is absolutely bounded by \(p^{-2\sigma}/(1-p^{-\sigma})\). Hence \(H\) is holomorphic there. The derivative \(P'\) continues meromorphically to \(\Re s>\tfrac12\) as \(\zeta'/\zeta-H'\). At the candidate,
+\[
+P'(s)=\frac{\xi'(s)}{\xi(s)}-\frac{K'(s)}{K(s)}-H'(s),
+\qquad
+\boxed{\operatorname{Res}_{s=\rho}P'(s)=m.}
+\]
+The two terms subtracted from \(\xi'/\xi\) are holomorphic near \(\rho\), so the logarithmic residue isolates the singular change in the first-order prime term. In \emph{Cogenesis Mathematical Singularity: Unified Derivations} v1.1.0, the same higher-order series appears with sign reversed in the logarithm of the renormalised minus Euler channel (``The higher-order Euler residual already closes at one-half'').
+
+\subsection{The phase--information clock}
+
+The phase--information clock \(0\sim\Delta\phi/\Delta I\) has an exact local reading. Set \(I=-\log|\xi|^2\) and take \(\phi=\arg\xi\) lifted along each path. Since \(\xi\) has a zero of order \(m\), the nonvanishing factor in \(\xi(s)/(s-\rho)^m\) has a holomorphic \(m\)-th root on a small disk. Thus there is a local analytic coordinate \(w\) centred at \(\rho\) with \(\xi=w^m\). Writing \(w=re^{i\theta}\) gives
+\[
+\Delta I=-2m\,\Delta\log r,\qquad
+\Delta\phi=m\,\Delta\theta.
+\]
+Along a fixed-phase refinement with \(\Delta I\ne0\), the ratio is exactly zero. Around a positively oriented loop at fixed \(r\), \(\Delta I=0\) and the phase winds by \(2\pi m\). The zero clock reading and the nonzero winding thus coexist at the \textbf{same} displacement. This local reading uses the comparison of phase and information changes in \emph{Unified Derivations} (``Time: operational measure and complete process record'').
+
+\subsection{Clock and winding in one equation}
+
+Write the local recovery as \(\xi=UE\), with \(U=K e^H\) and \(E=\zeta e^{-H}\), the continuation of \(e^P\) from \(\Re s>1\). The factor \(U\) is holomorphic and nonzero on a sufficiently small disk about the original candidate \(\rho=\tfrac12+d+i\gamma\). On the punctured disk, the normalisation \(I=-\log|\xi|^2\), with lifted phase \(\phi\), gives
+\[
+\boxed{\mathrm{d}\log E=-\tfrac12\,\mathrm{d}I
++i\,\mathrm{d}\phi-\mathrm{d}\log U.}
+\]
+Here \(e^{-H}\) is the scalar higher-order factor identified in the renormalised minus Euler channel of \emph{Unified Derivations} (``The higher-order Euler residual already closes at one-half'').
+
+On an inward fixed-phase path, \(\Delta\phi/\Delta I=0\); the term \(-\tfrac12\Delta I\) still contributes to the change in \(\log E\), together with \(-\Delta\log U\). On a small positively oriented contour about the same point, \(\oint\mathrm{d}I=\oint\mathrm{d}\log U=0\), leaving
+\[
+\boxed{\oint\mathrm{d}\log E=i\oint\mathrm{d}\phi=2\pi i\,m,}
+\]
+where \(m\) is the zero order. For the finite theta--Mellin ledger, take the completed approximants \(\tfrac12s(s-1)\Lambda^\sharp_{N,T}(s)\). They are holomorphic on and inside the contour and converge uniformly there: on compact sets the theta tail and the Mellin cutoff tail are bounded by exponentially decaying terms times fixed powers of the integration variable. Once the uniform error on the contour is less than \(\min|\xi|\) there, Rouch\'e's theorem and the argument principle give the same winding integer for the completed approximants (derivation paper, ``Mellin recovery of functional symmetry'').
+
+At the hypothesised zero, the first-order prime factor retains order \(m\) at the original displacement, and its reciprocal retains the pole. \textbf{Zero in the clock reading and \(m\) in the winding are compatible readouts of one relation.}
+
+In the branch normalisation the selected unary is \(\Phi_0=\odot_\xi^\ast\). The displaced records \(\Phi_{\pm d}\) remain in the retained branch residual \(r_{\pitchfork}\), with the record at \(\rho\) carrying its original pole key and winding \(m\).
+
+\section{What classical analysis already presupposes}
+
+Before classical analysis can assert
+\[
+F(x)=0,
+\]
+it must already have supplied enough structure for the assertion to mean anything. At minimum there is a codomain, an equality relation on that codomain, an evaluation rule for \(F(x)\), and a distinguished element denoted \(0\). In the present setting,
+\[
+0+z=z
+\qquad
+(z\in\mathbb C)
+\]
+defines the additive identity before any candidate is tested against it.
+
+Thus a zero of a function does not define zero. It identifies an evaluated expression with an already-available scalar element:
+\[
+x
+\overset{F}{\longmapsto}
+F(x)
+\overset{=}{\longleftrightarrow}
+0.
+\]
+
+This is not a cogenetic addition to classical mathematics. It is a precondition of the classical statement itself.
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Formal concession.}
+The proposition \(F(x)=0\) requires \(0\), equality, and the evaluation of \(F(x)\) to be defined prior to the proposition's truth or falsity being determined.
+}}
+\medskip
+
+The remaining question is therefore not whether zero exists, nor whether classical analysis is permitted to define it structurally. The question is what accounts for the passage from the evaluated expression to that already-defined terminal scalar account.
+
+Classical analysis ordinarily stops at ``evaluation followed by equality.'' Cogenesis retains the relation that those words compress.
+
+\section{Why the apparent contention is false under causal necessity}
+
+If a result is realised, then something made that result available. Calling the transition ``evaluation'' does not remove that dependence; it names it at the level of a formal operation. Calling the comparison ``equality'' does not make the evaluated expression causally prior to the structures required to interpret that comparison.
+
+Causal necessity therefore imposes a simple ordering:
+\[
+\text{available relation}
+\longrightarrow
+\text{enacted evaluation}
+\longrightarrow
+\text{realised result}.
+\]
+A realised result cannot be used as the prior cause of the same enactment by which it becomes available.
+
+For zero this gives:
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Causal ordering.}
+Zero is defined prior to zero-identification; zero-forming is the enacted accounting by which an expression resolves to it.
+}}
+\medskip
+
+The supposed disagreement is consequently smaller than it appears. Classical analysis already concedes the prior definition. Cogenesis adds the requirement that the resolution producing the terminal account remain causally typed rather than being treated as semantically inert.
+
+Within a process-first framework that accepts causal necessity, the bridge is not an optional selection axiom. It is the requirement that a realised projection be carried by the resolution from which that projection becomes available.
+
+\section{Updated cogenetic core}
+
+The notation here follows the compact Cogenesis v1.1 grammar. The primitive relational placement is
+\[
+\boxed{
+\cogL\bullet\heart\bullet\cogR
+}.
+\]
+A local enactment types those orientations as
+\[
+\cogL^\pi_{\Cctx,\Rres},
+\qquad
+\cogR^\pi_{\Cctx,\Rres},
+\]
+where the superscript \(\pi\) is a type annotation, not an application of projection. In particular,
+\[
+\cogL^\pi_{\Cctx,\Rres}
+\not\equiv
+\odot^\pi_{\Cctx,\Rres},
+\qquad
+\cogR^\pi_{\Cctx,\Rres}
+\not\equiv
+r_\pi.
+\]
+
+The internal resolution grammar is
+\[
+\heartplus
+\leftrightarrow
+\heartminus
+\longrightarrow
+\heartsim
+\longrightarrow
+\odot.
+\]
+Projection then makes a local unary observationally available:
+\[
+\odot
+\longrightarrow
+\odot^\pi_{\Cctx,\Rres}+r_\pi
+\longrightarrow
+\heartsim,
+\]
+with
+\[
+\odot^\pi_{\Cctx,\Rres}
+=
+\pi_{\Cctx,\Rres}(\odot).
+\]
+
+Persistence is local and typed. A stable expression \(\Phi^\ast\) satisfies
+\[
+\Pheart_{\Cctx,\Rres}[\Phi^\ast]
+>
+\Pheart_{\Cctx,\Rres}[\Psi]
+\quad
+\text{for every }
+\Psi\in
+\mathcal V_{\mathrm{adm}}
+(\Cctx,\Rres,\cogL^\pi_{\Cctx,\Rres}).
+\]
+The carried relation is not a separately stored ancestry object; it is relation already available in the present enactment.
+
+If a persistent differential branches, normalisation retains the distinction between the selected unary, unselected branches, and continuing differential:
+\[
+\heartsim\!\left(\DeltaFork(\odot)\right)
+=
+\odot^\ast
++
+r_{\pitchfork}
++
+\Delta_0'.
+\]
+The plus signs denote co-retention unless and until a numerical projection authorises scalar addition.
+
+The target recovery discipline is likewise typed:
+\[
+\cogL^\pi_{T;\Cctx_T,\Rres_T}
+\longrightarrow
+\Cctx_T
+\longrightarrow
+\Rres_T
+\longrightarrow
+\Pi_{T;\Cctx_T,\Rres_T}
+\longrightarrow
+T+R_T.
+\]
+For determination through persistence,
+\[
+\mathcal O_T
+\longrightarrow
+(\Cctx_T,\Rres_T)
+\longrightarrow
+\Pi_T
+\longrightarrow
+\Pheart_T
+\longrightarrow
+\odot_T^\ast+R_T.
+\]
+Residuals are scoped: \(r_{\pitchfork}\) retains unselected branches, \(r_\pi\) retains what a particular projection does not carry, and \(R_T\) retains what the target recovery does not carry.
+
+\section{Riemann instantiated in the updated grammar}
+
+For the alleged off-line zero,
+\[
+\rho=\frac12+d+i\gamma,
+\qquad d>0,
+\]
+the candidate's record \(\mathfrak B_\rho\), keyed to the pole at \(z_\rho\) and witnessed at every finite refinement by \(\mathcal P_\rho\), is the branching \(\DeltaFork\), and the presently admissible variations it generates are
+\[
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+Because
+\[
+\Pheart[\Phi_\eta]
+=
+\lambda-\eta^2,
+\]
+the unique local persistence maximum is
+\[
+\Phi^\ast=\Phi_0.
+\]
+Normalisation therefore resolves
+\[
+\odot_\xi^\ast=\Phi_0,
+\]
+while the off-line records remain carried in the branch residual:
+\[
+\heartsim(\DeltaFork)
+=
+\underbrace{\Phi_0}_{\odot_\xi^\ast}
++
+\underbrace{\{\Phi_{-d},\Phi_d\}}_{r_{\pitchfork}}
++
+\Delta_0'.
+\]
+
+Nothing has been erased. The distinction is register-level: persistence of a residual expression is not occupation of the realised unary channel.
+
+Now consider the classical claim
+\[
+\xi(\rho)=0.
+\]
+The scalar \(0\) is already defined before this claim is evaluated. If the claim is realised through the enacted \(\xi\)-recovery, its domain value must be carried by that recovery:
+\[
+\mathcal O_\xi
+\longrightarrow
+(\Cctx_\xi,\Rres_\xi)
+\longrightarrow
+\Pi_\xi
+\longrightarrow
+\Pheart_\xi
+\longrightarrow
+\odot_\xi^\ast+R_\xi.
+\]
+The candidate record that is asserted to realise the zero cannot at the same time remain only an unselected branch of that same enacted resolution. Therefore a realised zero at \(\Phi_d\) requires
+\[
+\Phi_d=\odot_\xi^\ast
+\]
+in the realised-output register.
+
+But the persistence calculation has already determined
+\[
+\odot_\xi^\ast=\Phi_0.
+\]
+Hence
+\[
+\Phi_d=\Phi_0.
+\]
+With the displacement projection
+\[
+\pi_\delta(\Phi_\eta)=\eta,
+\]
+we obtain
+\[
+d
+=
+\pi_\delta(\Phi_d)
+=
+\pi_\delta(\Phi_0)
+=
+0,
+\]
+contradicting \(d>0\).
+
+Thus an off-line displacement may remain present as retained relational content, but it cannot also be the realised zero-forming unary of the same enacted recovery.
+
+\section{The classical translation after causal accounting}
+
+The earlier compression
+\[
+\text{realised zero}
+\Longrightarrow
+\text{minimum-residual representative}
+\]
+is mathematically compact but causally under-described. It makes the bridge look like an additional selection axiom.
+
+The stronger translation is:
+\[
+\boxed{
+\begin{gathered}
+F(x)=0\text{ presupposes an already-defined }0,\\[2pt]
+\text{a realised value is available only through the evaluation that realises it},\\[2pt]
+\text{therefore the realised value must be carried by the resolved expression of that evaluation.}
+\end{gathered}}
+\]
+
+For the Riemann instantiation:
+\[
+\boxed{
+\begin{gathered}
+\xi(\rho)=0,\ d>0
+\Longrightarrow
+\DeltaFork=\mathfrak B_\rho\ \text{keyed to }z_\rho,
+\ \text{witness }\mathcal P_\rho
+\Longrightarrow
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\},\\[2pt]
+\Pheart[\Phi_\eta]
+=
+\lambda-\eta^2
+\Longrightarrow
+\odot_\xi^\ast=\Phi_0,\\[2pt]
+\xi(\rho)=0
+\text{ realised through }\Pi_\xi
+\Longrightarrow
+\Phi_d=\odot_\xi^\ast,\\[2pt]
+\pi_\delta(\odot_\xi^\ast)=0
+\Longrightarrow
+d=0.
+\end{gathered}}
+\]
+
+The apparent contention is therefore not over zero. Zero has already been conceded by the grammar required to state the problem. The contention is whether the causal relation by which an evaluated expression becomes equal to zero may be omitted from the accounting. Cogenesis says it may be suppressed typographically but not causally.
+
+\section{Compact proof skeleton}
+
+Assume
+\[
+\xi\!\left(\frac12+d+i\gamma\right)=0
+\qquad(d>0).
+\]
+The zero defines its refinement record \(\mathfrak B_\rho\), keyed to the pole of \(1/\zeta(z+i\gamma)\) at \(z_\rho=\frac12+d\). By the M\"obius--Mellin argument, that pole leaves the finite-prefix-invariant witness
+\[
+\mathcal P_\rho:
+\qquad
+\limsup_{X\to\infty}
+\frac{|M_\gamma(X)|}{X^{1/2+d-\varepsilon}}
+=
+\infty
+\qquad(0<\varepsilon<d),
+\]
+retained at every finite refinement. So witnessed, \(\mathfrak B_\rho\) is a persistent bifurcating differential, and with its reflection it generates
+\[
+\mathcal V_{\mathrm{adm}}
+=
+\{\Phi_{-d},\Phi_0,\Phi_d\}.
+\]
+Finite arithmetic and Mellin bookkeeping register the same displacement coordinate, while the coherence contribution is constant. Hence
+\[
+\Pheart(\eta)=\lambda-\eta^2
+\]
+has the unique admissible maximum at \(0\), so
+\[
+\odot_\xi^\ast=\Phi_0.
+\]
+
+The scalar zero in the claim is defined prior to the claim's evaluation. Under causal necessity, if that zero is realised through the presently enacted recovery, the realised record must be carried by the resolution producing it. Thus the claimed zero-bearing record \(\Phi_d\) must occupy the realised unary channel:
+\[
+\Phi_d=\odot_\xi^\ast=\Phi_0.
+\]
+Therefore
+\[
+d=0,
+\]
+contradicting \(d>0\). No off-line candidate can complete as a realised zero-forming output, and every realised nontrivial zero lies on
+\[
+\Re s=\frac12.
+\]
+
+\section{What has actually been added}
+
+No new definition of the scalar zero has been introduced. No off-line branch has been deleted. No symmetry orbit has been mistaken for a fixed point. The branch calculation remains finite and explicit, and the branch itself is generated by the zero's own refinement record, keyed to its pole, with the M\"obius exponent obstruction as that record's witness.
+
+The added discipline is causal typing:
+
+\medskip
+\noindent
+\fcolorbox{accent}{soft}{%
+\parbox{0.91\linewidth}{
+\textbf{Causal typing.}
+Availability precedes realisation, and a realised projection is carried by the resolution that makes it available.
+}}
+\medskip
+
+Classical notation already requires the structures needed to speak of zero. Cogenesis keeps visible the causal relation by which an enacted expression resolves into that already-defined account.
+
+In that sense, the only apparent contention is a false one once causal necessity is admitted: the scalar target is prior by definition, while its realised attainment remains posterior to the process that makes the attainment available.
+
+\begin{center}
+\vspace{1.15em}
+\emph{Infinite nuance, limitless determination.}
+\end{center}
+
+\clearpage
+\section*{Appendix: The arithmetic origin of the critical line}
+
+This appendix is orientation only. The argument above does not depend on it, and nothing here is offered as a proof step. Its purpose is to show where the \(\tfrac12\) comes from before any analysis is applied: it is the balance point of multiplication, and multiplication rests on counting.
+
+\subsection*{1. Counting}
+
+The step \(n\mapsto n+1\) is not one object placed beside another. It is a present unary together with the process that makes the next one available. The step is ordered: \(n\) is available before \(n+1\) is realised. Every structure built from counting inherits that before and after.
+
+\subsection*{2. Multiplying}
+
+Every \(N\ge1\) splits into divisor pairs
+\[
+N=d\cdot\frac Nd.
+\]
+Exchanging the two factors, \(d\leftrightarrow N/d\), pairs each small divisor with a large one. Among integer divisors an equal pair exists only when \(N\) is a square: for \(N=6\) the pairs are \(1\cdot6\) and \(2\cdot3\), and the exchange fixes neither.
+
+The balance becomes exact once the cutoffs may be any positive reals. Fix \(N>1\) and write a factorisation as \(uv=N\) with
+\[
+u=N^\theta,
+\qquad
+v=N^{1-\theta},
+\qquad
+\theta\in\mathbb R.
+\]
+Exchanging the factors is
+\[
+\theta\longmapsto1-\theta,
+\]
+and it leaves exactly one cutoff pair where it is:
+\[
+u=v
+\iff
+u=\sqrt N=N^{1/2}
+\iff
+\theta=\frac12.
+\]
+
+\subsection*{3. The balance point becomes the line}
+
+In the derivation paper this balance appears in a finite ledger. For every \(X\ge1\) and every \(s\in\mathbb C\),
+\[
+\sum_{ab\le X}\frac{\mu(a)}{(ab)^s}=1
+\]
+(``Finite invariant normalisation''). The identity holds for every cutoff pair \(u_\theta=X^\theta\), \(v_\theta=X^{1-\theta}\) (``Arbitrary hyperbola cutoff''). For \(X>1\), the factor-channel exchange \(\theta\mapsto1-\theta\) has the unique self-dual cutoff \(\theta=\tfrac12\), \(u=v=\sqrt X\); at \(X=1\), every \(\theta\) gives the same pair \((1,1)\). The script \texttt{verify\_\allowbreak hyperbola\_\allowbreak invariant.py} checks these finite identities.
+
+The functional symmetry \(\xi(s)=\xi(1-s)\) is not derived from this divisor exchange. The derivation paper recovers it on its own terms, from the theta inversion
+\[
+\Theta(x)=x^{-1/2}\Theta(x^{-1})
+\]
+and the Mellin transform, with explicit finite residuals (``Finite Gaussian--Poisson bridge'' and ``Mellin recovery of functional symmetry''). It then declares the exponent-preserving spectral--hyperbola projection, which matches the two exchanges: \(\theta\mapsto1-\theta\) on the cutoff side and \(s\mapsto1-s\) on the spectral side. With conjugation the spectral exchange is \(J(s)=1-\bar s\), whose fixed set is \(\Re s=\tfrac12\). Under that projection the self-dual cutoff \(\theta=\tfrac12\) and the critical line are one balance read in two coordinates. The critical line is therefore not placed into the plane from outside: it is the spectral reading of multiplication's own balance point.
+
+\subsection*{4. An off-line zero as a persistent imbalance}
+
+A hypothetical zero at \(\rho=\tfrac12+d+i\gamma\) with \(d>0\) would be a displacement \(d\) away from that balance. The section ``The zero generates the branch'' shows that such a zero rules out any slower uniform bound on the twisted M\"obius sum: for each \(\varepsilon>0\), no constant \(C\) makes \(\lvert M_\gamma(X)\rvert\le C X^{1/2+d-\varepsilon}\) hold for all sufficiently large \(X\). This does not say that \(\lvert M_\gamma(X)\rvert\) stays above that scale, and the growth alone does not identify which zero produced it. Changing finitely many summands shifts all sufficiently large partial sums by a constant. For \(0<\varepsilon<d\), the scale \(X^{1/2+d-\varepsilon}\) grows without bound, so a constant shift can neither create nor remove such a bound. The obstruction therefore persists at every finite stage of refinement.
+
+The paper's result is that persistence selects the balanced record. The displaced records \(\Phi_{\pm d}\) are kept, as the branch residual \(r_{\pitchfork}\), but they cannot also be the realised zero:
+\[
+\heartsim(\DeltaFork)
+=
+\underbrace{\Phi_0}_{\odot_\xi^\ast}
++
+\underbrace{\{\Phi_{-d},\Phi_d\}}_{r_{\pitchfork}}
++
+\Delta_0'.
+\]
+
+\subsection*{In one line}
+
+Counting orders; multiplication pairs; the pairing balances at \(\tfrac12\); the hypothetical off-line candidate's record is retained as residual, not realised as the zero.
+
+\end{document}
