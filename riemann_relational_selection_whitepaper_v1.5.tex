@@ -304,17 +304,18 @@ Set \(s_0=\tfrac12+i\gamma\), and let \(u\) be the coordinate in the chart based
 B_{N,T}(u)=\frac12+\frac{q(u)}2J_{N,T}(u),
 \qquad q(u)=(s_0+u)(s_0+u-1),
 \]
-where \(J_{N,T}(u)\) integrates the two weights \(t^{(s_0+u)/2-1}\) and \(t^{(1-s_0-u)/2-1}\) against \(\psi_N(t)\) on \([1,T]\). At \(u=0\) the weights have equal magnitude, as required by the self-dual projection (derivation paper, Proposition ``Mellin recovery of functional symmetry'', eq.~\texttt{finite-\allowbreak mellin-\allowbreak symmetric-\allowbreak coordinate}; Definition ``Finite Riemann persistence sample'', eq.~\texttt{lifted-\allowbreak self-\allowbreak dual-\allowbreak projection}).
+\begingroup\emergencystretch=2em\relax
+where \(J_{N,T}(u)\) integrates the two weights \(t^{(s_0+u)/2-1}\) and \(t^{(1-s_0-u)/2-1}\) against \(\psi_N(t)\) on \([1,T]\). At \(u=0\) the weights have equal magnitude, as required by the self-dual projection (derivation paper, Proposition ``Mellin recovery of functional symmetry'', eq.~\texttt{finite-\allowbreak mellin-\allowbreak symmetric-\allowbreak coordinate}; Definition ``Finite Riemann persistence sample'', eq.~\texttt{lifted-\allowbreak self-\allowbreak dual-\allowbreak projection}).\par\endgroup
 
 Restoring the original displacement multiplies those weights by \(t^{d/2}\) and \(t^{-d/2}\) respectively. It also changes the completion polynomial by \(q(u+d)-q(u)=d(2u+2i\gamma+d)\). So the scalar projection of the retained transport is explicitly
 \[
+\begin{aligned}
 R_{d;N,T}(u)
-=\frac12\Big(
- [q(u+d)-q(u)]J_{N,T}(u)
- +q(u+d)[J_{N,T}(u+d)-J_{N,T}(u)]
-\Big).
+&=\frac12\Big([q(u+d)-q(u)]J_{N,T}(u)\\
+&\qquad +q(u+d)[J_{N,T}(u+d)-J_{N,T}(u)]\Big).
+\end{aligned}
 \]
-Adding it to the balanced readout gives the exact finite identity \(B_{N,T}(u)+R_{d;N,T}(u)=B_{N,T}(u+d)\). Under refinement this becomes
+Adding it to the balanced readout gives the exact finite identity \(B_{N,T}(u)+\allowbreak R_{d;N,T}(u)=\allowbreak B_{N,T}(u+d)\). Under refinement this becomes
 \[
 \boxed{\underbrace{\xi(s_0+u)}_{\Phi_0\text{ chart}}+
        \underbrace{R_d(u)}_{\text{retained transport}}
